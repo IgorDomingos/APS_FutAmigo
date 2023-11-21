@@ -8,4 +8,4 @@ Júlio Vinícius Gonçalves dos Santos - jvgs
 
 Pedro Victor Lima Barbosa - pvlb
 
-Williams Douglas Santos - wdjs
+Williams Douglas José dos Santos - wdjs
