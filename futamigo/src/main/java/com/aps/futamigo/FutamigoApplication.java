@@ -1,13 +1,13 @@
-package com.example.aps;
+package com.aps.futamigo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class FutebolAmigoApplication {
+public class FutamigoApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(FutebolAmigoApplication.class, args);
+		SpringApplication.run(FutamigoApplication.class, args);
 	}
 
 }

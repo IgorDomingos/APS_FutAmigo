@@ -1,10 +1,10 @@
-package com.example.aps;
+package com.aps.futamigo;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class FutebolAmigoApplicationTests {
+class FutamigoApplicationTests {
 
 	@Test
 	void contextLoads() {
