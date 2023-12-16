@@ -1,3 +1,9 @@
 flask
 sqlalchemy
 oauth2client
+Flask-SQLAlchemy
+Flask-RESTful
+requests
+flask_cors
+Jinja2
+python==3.10.8
