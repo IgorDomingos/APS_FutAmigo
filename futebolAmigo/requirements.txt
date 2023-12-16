@@ -9,3 +9,4 @@ Jinja2
 google-auth
 google-auth-oauthlib
 oauthlib
+google-api-python-client
