@@ -1,6 +1,7 @@
 from sqlalchemy import Column, Integer, String, ForeignKey, Table, Date, JSON
 from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
+from .times import Time, TimeJogador
 
 Base = declarative_base()
 
@@ -68,4 +69,3 @@ class ContaJogador(ContaPadrao):
         self.peso = peso
         self.altura = altura
         self.posicao = posicao
-
