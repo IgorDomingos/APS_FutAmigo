@@ -1,5 +1,7 @@
 from oauth2client.client import OAuth2WebServerFlow
 from utils import SingletonMetaclass
+from negocio.controladores.controladorConta import ControladorConta
+from negocio.cadastro.cadastroConta import CadastroConta
 
 class iSubsistemaOAuth2(metaclass=SingletonMetaclass):
     def __init__(self, config):
@@ -24,7 +26,7 @@ class iSubsistemaOAuth2(metaclass=SingletonMetaclass):
 
 # ...
 
-controlador_conta = ControladorConta(cadastro_conta, iSubsistemaOAuth2(config))
+controlador_conta = ControladorConta(CadastroConta, iSubsistemaOAuth2(config))
 
 def efetuarLogin(request):
     token = request.headers.get('Authorization')
