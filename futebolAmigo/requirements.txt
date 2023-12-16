@@ -6,3 +6,6 @@ Flask-RESTful
 requests
 flask_cors
 Jinja2
+google-auth
+google-auth-oauthlib
+oauthlib
