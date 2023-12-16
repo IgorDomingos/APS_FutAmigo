@@ -10,13 +10,13 @@ from google_auth_oauthlib.flow import Flow
 from pip._vendor import cachecontrol
 
 app = Flask(__name__)
-app.secret_key = "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"
+app.secret_key = "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"
 # CORS(app)
 # api = Api(app)
 
 os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
 
-GOOGLE_CLIENT_ID = "370395425539-kmeatijp191ru98o6phk41mk7pbaifi0.apps.googleusercontent.com"
+GOOGLE_CLIENT_ID = "273327695086-n8e5fj69sjqso0mpsesondtkj19a3arp.apps.googleusercontent.com"
 client_secrets_file = os.path.join(pathlib.Path(__file__).parent, "client_secret.json")
 
 flow = Flow.from_client_secrets_file(
@@ -83,4 +83,4 @@ def protected_area():
 
 
 if __name__ == "__main__":
-    app.run(port=80, debug=True)
+    app.run(host='0.0.0.0', port=80)
