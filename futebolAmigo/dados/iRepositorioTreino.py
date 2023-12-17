@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-class IRepositorioTime(ABC):
+class IRepositorioTreino(ABC):
     @abstractmethod
     def create(self, data):
         pass
@@ -18,5 +18,5 @@ class IRepositorioTime(ABC):
         pass
     
     @abstractmethod
-    def get_time(self, id):
+    def get_treino(self, id):
         pass
