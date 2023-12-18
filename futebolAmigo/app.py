@@ -15,9 +15,9 @@ from flask_login import (
 from oauthlib.oauth2 import WebApplicationClient
 import requests
 
-# # Internal imports
-# from db import init_db_command
-# from user import User
+# Internal imports
+from db import init_db_command
+from user import User
 
 # Configuration
 GOOGLE_CLIENT_ID = '68384000085-ku15qe0jn30cj2of9ecjamji3j0n4ok0.apps.googleusercontent.com' #os.environ.get("GOOGLE_CLIENT_ID", None)
@@ -41,36 +41,48 @@ def unauthorized():
     return "You must be logged in to access this content.", 403
 
 
-# # Naive database setup
-# try:
-#     init_db_command()
-# except sqlite3.OperationalError:
-#     # Assume it's already been created
-#     pass
+# Naive database setup
+try:
+    init_db_command()
+except sqlite3.OperationalError:
+    # Assume it's already been created
+    pass
 
 # OAuth2 client setup
 client = WebApplicationClient(GOOGLE_CLIENT_ID)
 
 
-# # Flask-Login helper to retrieve a user from our db
-# @login_manager.user_loader
-# def load_user(user_id):
-#     return User.get(user_id)
+# Flask-Login helper to retrieve a user from our db
+@login_manager.user_loader
+def load_user(user_id):
+    return User.get(user_id)
 
 
 @app.route("/")
 def index():
     if current_user.is_authenticated:
         return (
-            "<p>Hello, {}! You're logged in! Email: {}</p>"
-            "<div><p>Google Profile Picture:</p>"
-            '<img src="{}" alt="Google profile pic"></img></div>'
-            '<a class="button" href="/logout">Logout</a>'.format(
+            "<div class='profile'>"
+            "<p>Olá, {}! Você está logado! Email: {}</p>"
+            "<div><p>Foto de perfil do Google:</p>"
+            '<img src="{}" alt="Foto de perfil do Google"></img></div>'
+            "</div>"
+            "<div class='football-theme'>"
+            "<h2>Bem-vindo ao Futebol Amigo!</h2>"
+            "<p>Aqui é onde os amantes do futebol se encontram. Prepare-se para a emoção!</p>"
+            '<a class="button" href="/logout">Sair</a>'
+            "</div>".format(
                 current_user.name, current_user.email, current_user.profile_pic
             )
         )
     else:
-        return '<a class="button" href="/login">Google Login</a>'
+        return (
+            "<div class='football-theme'>"
+            "<h2>Bem-vindo ao Futebol Amigo!</h2>"
+            "<p>Faça login com o Google para começar a diversão!</p>"
+            '<a class="button" href="/login">Login com Google</a>'
+            "</div>"
+        )
 
 
 @app.route("/login")
@@ -134,18 +146,18 @@ def callback():
     else:
         return "User email not available or not verified by Google.", 400
 
-    # # Create a user in our db with the information provided
-    # # by Google
-    # user = User(
-    #     id_=unique_id, name=users_name, email=users_email, profile_pic=picture
-    # )
+    # Create a user in our db with the information provided
+    # by Google
+    user = User(
+        id_=unique_id, name=users_name, email=users_email, profile_pic=picture
+    )
 
-    # # Doesn't exist? Add to database
-    # if not User.get(unique_id):
-    #     User.create(unique_id, users_name, users_email, picture)
+    # Doesn't exist? Add to database
+    if not User.get(unique_id):
+        User.create(unique_id, users_name, users_email, picture)
 
-    # # Begin user session by logging the user in
-    # login_user(user)
+    # Begin user session by logging the user in
+    login_user(user)
 
     # Send user back to homepage
     return redirect(url_for("index"))
