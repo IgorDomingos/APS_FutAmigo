@@ -1,8 +1,6 @@
 from .iRepositorioUsuario import IRepositorioUsuario
 from entidades import ContaPadrao, ContaGestor, ContaJogador
 
-from datetime import date
-
 class RepositorioUsuarioLocal(IRepositorioUsuario):
     def __init__(self): 
         conta_padrao_inicial = ContaPadrao('idrs@cin.ufpe.br', '87200887200', 'Igor Domingos da Rocha e Silva')
