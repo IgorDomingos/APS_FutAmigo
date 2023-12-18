@@ -71,9 +71,12 @@ def index():
             "<h2>Bem-vindo ao Futebol Amigo!</h2>"
             "<p>Aqui é onde os amantes do futebol se encontram. Prepare-se para a emoção!</p>"
             '<a class="button" href="/logout">Sair</a>'
-            "</div>".format(
-                current_user.name, current_user.email, current_user.profile_pic
-            )
+            "</div>"
+            "<div class='gif-container'>"
+            '<img src="/static/Vem.gif" alt="Futebol gif">'
+            "</div>"
+        ).format(
+            current_user.name, current_user.email, current_user.profile_pic
         )
     else:
         return (
@@ -81,6 +84,9 @@ def index():
             "<h2>Bem-vindo ao Futebol Amigo!</h2>"
             "<p>Faça login com o Google para começar a diversão!</p>"
             '<a class="button" href="/login">Login com Google</a>'
+            "</div>"
+            "<div class='gif-container'>"
+            '<img src="/static/Vem.gif" alt="Futebol gif">'
             "</div>"
         )
 
