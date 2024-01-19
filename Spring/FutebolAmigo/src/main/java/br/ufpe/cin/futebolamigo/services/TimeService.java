@@ -1,11 +1,34 @@
 package br.ufpe.cin.futebolamigo.services;
 
+import br.ufpe.cin.futebolamigo.models.Time;
 import br.ufpe.cin.futebolamigo.repositories.TimeRepository;
-import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
-@RequiredArgsConstructor
 public class TimeService {
+
+    public TimeService(TimeRepository timeRepository) {
+        this.timeRepository = timeRepository;
+    }
+
     private TimeRepository timeRepository;
+
+    public Time createTime(Time time) {
+        return timeRepository.save(time);
+    }
+
+    public Page<Time> getAllTimes(Pageable page) {
+        return timeRepository.findAll(page);
+    }
+
+    public Optional<Time> getTimeById(Long timeId) {
+        return timeRepository.findById(timeId);
+    }
+    public void deleteTime(Long timeId) {
+        timeRepository.deleteById(timeId);
+    }
 }

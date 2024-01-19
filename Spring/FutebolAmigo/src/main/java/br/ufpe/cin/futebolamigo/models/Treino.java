@@ -16,7 +16,6 @@ public class Treino {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Timestamp dataHorario;
-    private String local;
     @ManyToOne
     @JoinColumn(name = "id_time")
     private Time time;

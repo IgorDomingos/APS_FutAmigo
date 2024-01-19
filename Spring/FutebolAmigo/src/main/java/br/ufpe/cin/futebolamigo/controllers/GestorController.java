@@ -2,7 +2,6 @@ package br.ufpe.cin.futebolamigo.controllers;
 
 import br.ufpe.cin.futebolamigo.models.Gestor;
 import br.ufpe.cin.futebolamigo.services.GestorService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -16,11 +15,11 @@ import java.util.Optional;
 @RequestMapping("/gestor")
 //@RequiredArgsConstructor
 public class GestorController {
-    private final GestorService gestorService;
 
     public GestorController(GestorService gestorService) {
         this.gestorService = gestorService;
     }
+    private final GestorService gestorService;
 
     @PostMapping
     public ResponseEntity create(@RequestBody Gestor gestor, UriComponentsBuilder bodybuilder){
