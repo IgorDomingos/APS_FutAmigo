@@ -1,0 +1,17 @@
+/* styles.css */
+
+.google_login {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background-color: white;
+
+}
+.github_login {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    border: 1px solid black;
+    background-color: black;
+}

@@ -1,6 +1,6 @@
 package br.ufpe.cin.futebolamigo.services;
 
-import br.ufpe.cin.futebolamigo.models.Time;
+import br.ufpe.cin.futebolamigo.models.Time.Time;
 import br.ufpe.cin.futebolamigo.repositories.TimeRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -27,6 +27,9 @@ public class TimeService {
 
     public Optional<Time> getTimeById(Long timeId) {
         return timeRepository.findById(timeId);
+    }
+    public Optional<Time> getTimeByNome(String timeNome) {
+        return timeRepository.findByNome(timeNome);
     }
     public void deleteTime(Long timeId) {
         timeRepository.deleteById(timeId);
