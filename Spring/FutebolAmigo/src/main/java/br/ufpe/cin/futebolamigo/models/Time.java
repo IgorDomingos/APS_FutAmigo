@@ -1,7 +1,5 @@
-package br.ufpe.cin.futebolamigo.models.Time;
+package br.ufpe.cin.futebolamigo.models;
 
-import br.ufpe.cin.futebolamigo.models.Gestor;
-import br.ufpe.cin.futebolamigo.models.Jogador;
 import jakarta.persistence.*;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

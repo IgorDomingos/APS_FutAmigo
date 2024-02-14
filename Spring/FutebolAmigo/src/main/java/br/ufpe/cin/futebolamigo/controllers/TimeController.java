@@ -1,6 +1,7 @@
 package br.ufpe.cin.futebolamigo.controllers;
 
-import br.ufpe.cin.futebolamigo.models.Time.Time;
+import br.ufpe.cin.futebolamigo.models.Jogador;
+import br.ufpe.cin.futebolamigo.models.Time;
 import br.ufpe.cin.futebolamigo.services.TimeService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -33,9 +34,9 @@ public class TimeController {
         return ResponseEntity.ok(times);
     }
 
-    @GetMapping("/{nome}")
-    public ResponseEntity<Time> getByNome(@PathVariable String nome) {
-        Optional<Time> time = timeService.getTimeByNome(nome);
+    @GetMapping("/{id}")
+    public ResponseEntity<Time> getById(@PathVariable long id) {
+        Optional<Time> time = timeService.getTimeById(id);
         return time.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
