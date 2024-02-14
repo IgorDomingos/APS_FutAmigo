@@ -12,14 +12,14 @@ public class GestorDTO {
     private String email;
 
     // Opcional: ID do time (simplificado)
-    private Long timeId;
+//    private Long timeId;
 
     // Construtor com todos os campos (opcional)
-    public GestorDTO(String cpf, String nome, String email, Long timeId) {
-        this.cpf = cpf;
-        this.nome = nome;
-        this.email = email;
-        this.timeId = timeId;
-    }
+//    public GestorDTO(String cpf, String nome, String email, Long timeId) {
+//        this.cpf = cpf;
+//        this.nome = nome;
+//        this.email = email;
+//        this.timeId = timeId;
+//    }
 
 }

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>User Management</title>
+    <link rel="stylesheet" th:href="@{/css/userManagement.css}">
+</head>
+<body>
+
+<h2>Update User</h2>
+<form th:action="@{/user/update}" method="post" id="updateUserForm">
+    <label for="id">ID:</label><br>
+    <input type="text" id="id" name="id"><br>
+    <label for="firstName">First Name:</label><br>
+    <input type="text" id="firstName" name="firstName"><br>
+    <label for="lastName">Last Name:</label><br>
+    <input type="text" id="lastName" name="lastName"><br>
+    <label for="userName">Username:</label><br>
+    <input type="text" id="userName" name="userName"><br>
+    <input type="submit" value="Update User">
+</form>
+
+<h2>Delete User</h2>
+<form th:action="@{/user/delete}" method="post" id="deleteUserForm">
+    <label for="id">ID:</label><br>
+    <input type="text" id="id" name="id"><br>
+    <input type="submit" value="Delete User">
+</form>
+
+<h2>All Users</h2>
+<table id="users">
+    <tr>
+        <th>ID</th>
+        <th>First_Name</th>
+        <th>Last_Name</th>
+        <th>Username</th>
+    </tr>
+    <!-- Rows of users will be filled by Thymeleaf -->
+    <tr th:each="user : ${users}">
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.first_name}"></td>
+        <td th:text="${user.last_name}"></td>
+        <td th:text="${user.user_name}"></td>
+    </tr>
+</table>
+
+<script th:src="@{/js/userManagement.js}"></script>
+</body>
+</html>

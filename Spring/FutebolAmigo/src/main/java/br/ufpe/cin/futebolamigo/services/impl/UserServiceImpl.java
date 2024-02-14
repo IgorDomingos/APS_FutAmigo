@@ -10,6 +10,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -27,10 +28,40 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User findByUserName(String username) {
+        return repository.findByUserName(username);
+    }
+
+    @Override
     public List<UserDTO> findAllUsers() {
         List<User> users = repository.findAll();
         return users.stream()
                 .map(mapper::convertToDto)
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public UserDTO updateUser(String id, UserDTO userDTO) {
+        Optional<User> optionalUser = repository.findById(id);
+        if (optionalUser.isPresent()) {
+            User user = optionalUser.get();
+            user.setFirstName(userDTO.getFirstName());
+            user.setLastName(userDTO.getLastName());
+            user.setUserName(userDTO.getUserName());
+            User updatedUser = repository.save(user);
+
+            return mapper.convertToDto(updatedUser);
+        } else {
+            throw new RuntimeException("User not found with id: " + id);
+        }
+    }
+
+    @Override
+    public void deleteUser(String id) {
+        if (repository.existsById(id)) {
+            repository.deleteById(id);
+        } else {
+            throw new RuntimeException("User not found with id: " + id);
+        }
     }
 }
