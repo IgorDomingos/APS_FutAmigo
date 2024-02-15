@@ -39,10 +39,10 @@
     </tr>
     <!-- Rows of users will be filled by Thymeleaf -->
     <tr th:each="user : ${users}">
-        <td th:text="${user.id}"></td>
-        <td th:text="${user.first_name}"></td>
-        <td th:text="${user.last_name}"></td>
-        <td th:text="${user.user_name}"></td>
+        <td th:text="${users.id}"></td>
+        <td th:text="${users.firstname}"></td>
+        <td th:text="${users.lastname}"></td>
+        <td th:text="${users.username}"></td>
     </tr>
 </table>
 
