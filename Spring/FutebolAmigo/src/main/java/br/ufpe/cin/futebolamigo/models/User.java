@@ -1,13 +1,14 @@
 package br.ufpe.cin.futebolamigo.models;
 
+import br.ufpe.cin.futebolamigo.services.impl.Prototype;
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.ToString;
+import lombok.*;
 
 @Entity
 @Data
+@ToString
 @Table(name = "users")
-public class User {
+public class User implements Prototype {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -16,4 +17,19 @@ public class User {
     private String lastName;
     private String userName;
     private String password;
+
+    private User(User user) {
+        this.id = user.id;
+        this.firstName = user.firstName;
+        this.lastName = user.lastName;
+        this.userName = user.userName;
+        this.password = user.password;
+    }
+    public User() {
+    }
+
+    @Override
+    public Prototype clone() {
+        return new User(this);
+    }
 }
