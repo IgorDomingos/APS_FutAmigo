@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Gestor Management</title>
+    <link rel="stylesheet" th:href="@{/css/gestorManagement.css}">
+</head>
+<body>
+
+<h2>Update Gestor</h2>
+<form th:action="@{/gestor/update}" method="post" id="updateGestorForm">
+    <label for="id">ID:</label><br>
+    <input type="text" id="id" name="id"><br>
+    <label for="cpf">CPF:</label><br>
+    <input type="text" id="cpf" name="cpf"><br>
+    <input type="submit" value="Update Gestor">
+</form>
+
+<h2>Create Time</h2>
+<form th:action="@{/time/create}" method="post" id="createTimeForm">
+    <label for="timeName">Time Name:</label><br>
+    <input type="text" id="timeName" name="timeName" required><br>
+    <input type="submit" value="Create Time">
+</form>
+
+<script th:src="@{/js/gestorManagement.js}"></script>
+</body>
+</html>
