@@ -2,7 +2,6 @@ package br.ufpe.cin.futebolamigo.controllers;
 
 import br.ufpe.cin.futebolamigo.dto.UserDTO;
 import br.ufpe.cin.futebolamigo.events.UserUpdateEvent;
-import br.ufpe.cin.futebolamigo.models.User;
 import br.ufpe.cin.futebolamigo.services.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.ApplicationEventPublisher;
@@ -29,6 +28,7 @@ public class UserController {
     public String userSave(@ModelAttribute("user") UserDTO userDTO){
         userService.createUser(userDTO);
         UserDTO clonedUserDTO = (UserDTO) userDTO.clone();
+        clonedUserDTO.setUserName("Clone" + clonedUserDTO.getUserName());
         userService.createUser(clonedUserDTO);
         return "redirect:/login";
     }
@@ -49,5 +49,18 @@ public class UserController {
         userService.deleteUser(userDTO.getId().toString());
         return "redirect:/user/userManagement";
     }
+
+    @PostMapping("/find")
+    public String findByUserName(@ModelAttribute UserDTO userDTO) {
+        userService.findByUserName(userDTO.getUserName());
+        return "redirect:/user/userManagement";
+    }
+
+    @PostMapping("/findAll")
+    public String findAllUsers(@ModelAttribute UserDTO userDTO) {
+        userService.findAllUsers();
+        return "redirect:/user/userManagement";
+    }
+
 
 }

@@ -8,6 +8,8 @@ import br.ufpe.cin.futebolamigo.mapper.UserMapper;
 import br.ufpe.cin.futebolamigo.services.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -70,5 +72,12 @@ public class UserServiceImpl implements UserService {
         } else {
             throw new RuntimeException("User not found with id: " + id);
         }
+    }
+    @Override
+    public Long getCurrentUserId() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String currentUserName = authentication.getName();
+        User currentUser = findByUserName(currentUserName);
+        return currentUser.getId();
     }
 }
