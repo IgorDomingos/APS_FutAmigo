@@ -6,7 +6,12 @@
 </head>
 <body>
 <h1>Welcome to Futebol Amigo App</h1>
+<p th:text = "'First Name: '+ ${#authentication.getName()}"></p>
+<p th:text = "'Credentials: '+ ${#authentication.getCredentials()}"></p>
+<p th:text = "'Details: '+ ${#authentication.getDetails()}"></p>
+<p th:text = "'Authorities: '+ ${#authentication.getAuthorities()}"></p>
 <p th:text = "'authenticated user:'+ ${#authentication.getPrincipal()}"></p>
 <button onclick="window.location.href='/user/userManagement'">Go to User Management</button>
+<button onclick="window.location.href='/gestor/create'">Become a Manager</button>
 </body>
 </html>
