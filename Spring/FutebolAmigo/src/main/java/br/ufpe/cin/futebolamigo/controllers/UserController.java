@@ -1,7 +1,13 @@
 package br.ufpe.cin.futebolamigo.controllers;
 
+import br.ufpe.cin.futebolamigo.dto.GestorDTO;
+import br.ufpe.cin.futebolamigo.dto.JogadorDTO;
+import br.ufpe.cin.futebolamigo.dto.TimeDTO;
 import br.ufpe.cin.futebolamigo.dto.UserDTO;
 import br.ufpe.cin.futebolamigo.events.UserUpdateEvent;
+import br.ufpe.cin.futebolamigo.services.GestorService;
+import br.ufpe.cin.futebolamigo.services.JogadorService;
+import br.ufpe.cin.futebolamigo.services.TimeService;
 import br.ufpe.cin.futebolamigo.services.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.ApplicationEventPublisher;
@@ -17,6 +23,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/user")
 public class UserController {
     private final UserService userService;
+    private final GestorService gestorService;
+    private final JogadorService jogadorService;
+    private final TimeService timeService;
     private final ApplicationEventPublisher eventPublisher;
     @GetMapping("/create")
     public String userCreate(Model model){
@@ -59,6 +68,24 @@ public class UserController {
     @PostMapping("/findAll")
     public String findAllUsers(@ModelAttribute UserDTO userDTO) {
         userService.findAllUsers();
+        return "redirect:/user/userManagement";
+    }
+
+    @PostMapping("/findGestor")
+    public String findGestor(@ModelAttribute GestorDTO gestorDTO) {
+        gestorService.findByCpfGestor(gestorDTO.getCpfGestor());
+        return "redirect:/user/userManagement";
+    }
+
+    @PostMapping("/findJogador")
+    public String findJogador(@ModelAttribute JogadorDTO jogadorDTO) {
+        jogadorService.findByCpf(jogadorDTO.getCpf());
+        return "redirect:/user/userManagement";
+    }
+
+    @PostMapping("/findTime")
+    public String findTime(@ModelAttribute TimeDTO timeDTO) {
+        timeService.findByNome(timeDTO.getNome());
         return "redirect:/user/userManagement";
     }
 
