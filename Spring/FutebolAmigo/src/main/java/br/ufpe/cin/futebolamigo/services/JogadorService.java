@@ -14,28 +14,8 @@ import java.util.Optional;
 @Service
 public interface JogadorService {
     JogadorDTO createJogador(JogadorDTO jogadorDTO);
-
+    Jogador findByCpf(String cpf);
+    JogadorDTO updateJogador(JogadorDTO jogadorDTO);
     List<JogadorDTO> findAllJogadores();
-
-
-//    public JogadorService(JogadorRepository jogadorRepository) {
-//        this.jogadorRepository = jogadorRepository;
-//    }
-//    private JogadorRepository jogadorRepository;
-//
-//    public Jogador createJogador(Jogador jogador) {
-//        return jogadorRepository.save(jogador);
-//    }
-//
-//    public Page<Jogador> getAllJogadores(Pageable page) {
-//        return jogadorRepository.findAll(page);
-//    }
-//
-//    public Optional<Jogador> getJogadorById(String jogadorId) {
-//        return jogadorRepository.findById(jogadorId);
-//    }
-//
-//    public void deleteJogador(String jogadorId) {
-//        jogadorRepository.deleteById(jogadorId);
-//    }
+    void deleteJogador(String cpf);
 }

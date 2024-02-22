@@ -31,4 +31,21 @@ public class JogadorServiceImpl implements JogadorService {
                 .map(mapper::convertToDto)
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public JogadorDTO updateJogador(JogadorDTO jogadorDTO) {
+        Jogador jogadorToUpdate = mapper.convertToEntity(jogadorDTO);
+        Jogador updatedJogador = repository.save(jogadorToUpdate);
+        return mapper.convertToDto(updatedJogador);
+    }
+
+    @Override
+    public void deleteJogador(String cpf) {
+        repository.deleteByCpf(cpf);
+    }
+
+    @Override
+    public Jogador findByCpf(String cpf) {
+        return repository.findByCpf(cpf);
+    }
 }
