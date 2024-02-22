@@ -32,4 +32,21 @@ public class GestorServiceImpl implements GestorService {
                 .map(mapper::convertToDto)
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public Gestor findByCpfGestor(String cpf) {
+        return repository.findByCpfGestor(cpf);
+    }
+
+    @Override
+    public GestorDTO updateGestor(GestorDTO gestorDTO) {
+        Gestor gestorToUpdate = mapper.convertToEntity(gestorDTO);
+        Gestor updatedGestor = repository.save(gestorToUpdate);
+        return mapper.convertToDto(updatedGestor);
+    }
+
+    @Override
+    public void deleteGestor(String cpf) {
+        repository.deleteByCpfGestor(cpf);
+    }
 }

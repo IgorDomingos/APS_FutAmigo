@@ -1,6 +1,5 @@
 package br.ufpe.cin.futebolamigo.models;
 
-import br.ufpe.cin.futebolamigo.models.Time.Time;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -10,11 +9,11 @@ import lombok.Setter;
 @Setter
 public class Gestor {
     @Id
-    private String cpf;
+    private String cpfGestor;
     @OneToOne
     @JoinColumn(name = "id_user")
     private User user;
-//    @OneToOne
-//    @JoinColumn(name = "id_time")
-//    private Time time;
+    @OneToOne
+    @JoinColumn(name = "nome_time")
+    private Time time;
 }

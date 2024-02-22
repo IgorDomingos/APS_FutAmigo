@@ -7,8 +7,8 @@ import lombok.Setter;
 @Setter
 public class GestorDTO {
 
-    private String cpf;
+    private String cpfGestor;
     private Long idUser;
-//    private Long idTime;
+    private String idTime;
 
 }
