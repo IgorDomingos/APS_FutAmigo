@@ -1,6 +1,5 @@
 package br.ufpe.cin.futebolamigo.models;
 
-import br.ufpe.cin.futebolamigo.models.Time.Time;
 import jakarta.persistence.*;
 import java.sql.Timestamp;
 import lombok.AllArgsConstructor;
