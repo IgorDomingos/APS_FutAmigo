@@ -19,11 +19,8 @@
 </form>
 
 <h2>Create Time</h2>
-<form th:action="@{/gestor/createTime}" method="post" id="createTimeForm">
-    <label for="timeName">Time Name:</label><br>
-    <input type="text" id="timeName" name="timeName" required><br>
-    <input type="submit" value="Create Time">
-</form>
+<button onclick="window.location.href='/gestor/createTime'">Create a Time</button>
+
 
 <script th:src="@{/js/gestorManagement.js}"></script>
 </body>

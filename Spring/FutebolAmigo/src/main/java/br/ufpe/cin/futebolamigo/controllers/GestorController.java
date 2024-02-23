@@ -74,7 +74,7 @@ public class GestorController {
     @PostMapping("/createTime")
     public String saveTime(@ModelAttribute("time") TimeDTO timeDTO) {
         timeService.createTime(timeDTO);
-        return "gestorManagement";
+        return "createTime";
 
     }
 
