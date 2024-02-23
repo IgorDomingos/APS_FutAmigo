@@ -12,12 +12,12 @@ public class Jogador {
     @Id
     private String cpf;
     @ManyToOne
-    @JoinColumn(name = "id_time")
+    @JoinColumn(name = "nome_time")
     private Time time;
     @OneToOne
     @JoinColumn(name = "id_user")
     private User user;
-    private Date idade;
+    private String idade;
     private double peso;
     private double altura;
     private String posicao;

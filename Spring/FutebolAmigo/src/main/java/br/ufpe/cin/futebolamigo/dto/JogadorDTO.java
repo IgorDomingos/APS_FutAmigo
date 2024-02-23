@@ -14,8 +14,8 @@ public class JogadorDTO {
 
     private String cpf;
     private String timeId;
-    private String userId;
-    private Date idade;
+    private Long idUser;
+    private String idade;
     private Double peso;
     private Double altura;
     private String posicao;
