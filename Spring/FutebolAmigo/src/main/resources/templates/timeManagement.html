@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Time Management</title>
+    <link rel="stylesheet" th:href="@{/css/timeManagement.css}">
+</head>
+<body>
+
+<h2>Update Time</h2>
+<form th:action="@{/time/update}" method="post" id="updateTimeForm">
+    <label for="nome">Nome:</label><br>
+    <input type="text" id="nome" name="nome" required><br>
+    <input type="submit" value="Update Time">
+</form>
+
+<h2>Delete Time</h2>
+<form th:action="@{/time/delete}" method="post" id="deleteTimeForm">
+    <label for="nome">Nome:</label><br>
+    <input type="text" id="nome" name="nome" required><br>
+    <input type="submit" value="Delete Time">
+</form>
+
+
+<script th:src="@{/js/timeManagement.js}"></script>
+</body>
+</html>
