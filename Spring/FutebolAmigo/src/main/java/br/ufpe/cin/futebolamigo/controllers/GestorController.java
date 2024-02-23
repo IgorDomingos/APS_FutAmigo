@@ -2,9 +2,11 @@ package br.ufpe.cin.futebolamigo.controllers;
 
 import br.ufpe.cin.futebolamigo.dto.GestorDTO;
 import br.ufpe.cin.futebolamigo.dto.TimeDTO;
+import br.ufpe.cin.futebolamigo.dto.UserDTO;
 import br.ufpe.cin.futebolamigo.services.GestorService;
 import br.ufpe.cin.futebolamigo.services.JogadorService;
 import br.ufpe.cin.futebolamigo.services.TimeService;
+import br.ufpe.cin.futebolamigo.services.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.ui.Model;
 import org.springframework.stereotype.Controller;
@@ -13,15 +15,27 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
+
 
 @Controller
 @RequestMapping("/gestor")
 @RequiredArgsConstructor
 public class GestorController {
+    private final UserService userService;
     private final GestorService gestorService;
     private final TimeService timeService;
     private final JogadorService jogadorService;
 
+
+    @ModelAttribute("users")
+    public List<UserDTO> getAllUsers() {
+        return userService.findAllUsers();
+    }
+    @ModelAttribute("times")
+    public List<TimeDTO> getAllTimes() {
+        return timeService.findAllTimes();
+    }
     @GetMapping("/create")
     public String gestorCreate(Model model) {
         model.addAttribute("gestor", new GestorDTO());
