@@ -7,10 +7,10 @@ import org.springframework.context.ApplicationEvent;
 
 @Getter
 @Setter
-public class UserUpdateEvent extends ApplicationEvent {
+public class UserEvent extends ApplicationEvent {
     private UserDTO userDTO;
 
-    public UserUpdateEvent(Object source, UserDTO userDTO) {
+    public UserEvent(Object source, UserDTO userDTO) {
         super(source);
         this.userDTO = userDTO;
     }

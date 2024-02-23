@@ -1,6 +1,6 @@
 package br.ufpe.cin.futebolamigo.services.impl;
 
-import br.ufpe.cin.futebolamigo.events.UserUpdateEvent;
+import br.ufpe.cin.futebolamigo.events.UserEvent;
 import br.ufpe.cin.futebolamigo.repositories.UserRepository;
 import br.ufpe.cin.futebolamigo.dto.UserDTO;
 import br.ufpe.cin.futebolamigo.models.User;
@@ -56,7 +56,7 @@ public class UserServiceImpl implements UserService {
             User updatedUser = repository.save(user);
 
             // Publicar o UserUpdateEvent -- Observer Pattern
-            UserUpdateEvent event = new UserUpdateEvent(this, mapper.convertToDto(updatedUser));
+            UserEvent event = new UserEvent(this, mapper.convertToDto(updatedUser));
             eventPublisher.publishEvent(event);
 
             return mapper.convertToDto(updatedUser);

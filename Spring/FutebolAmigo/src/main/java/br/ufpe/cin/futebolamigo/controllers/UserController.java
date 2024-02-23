@@ -4,7 +4,7 @@ import br.ufpe.cin.futebolamigo.dto.GestorDTO;
 import br.ufpe.cin.futebolamigo.dto.JogadorDTO;
 import br.ufpe.cin.futebolamigo.dto.TimeDTO;
 import br.ufpe.cin.futebolamigo.dto.UserDTO;
-import br.ufpe.cin.futebolamigo.events.UserUpdateEvent;
+import br.ufpe.cin.futebolamigo.events.UserEvent;
 import br.ufpe.cin.futebolamigo.services.GestorService;
 import br.ufpe.cin.futebolamigo.services.JogadorService;
 import br.ufpe.cin.futebolamigo.services.TimeService;
@@ -29,6 +29,11 @@ public class UserController {
     private final JogadorService jogadorService;
     private final TimeService timeService;
     private final ApplicationEventPublisher eventPublisher;
+
+    @ModelAttribute("users")
+    public List<UserDTO> getAllUsers() {
+        return userService.findAllUsers();
+    }
     @GetMapping("/create")
     public String userCreate(Model model){
         model.addAttribute("user",new UserDTO());
@@ -39,8 +44,9 @@ public class UserController {
     public String userSave(@ModelAttribute("user") UserDTO userDTO){
         userService.createUser(userDTO);
         UserDTO clonedUserDTO = (UserDTO) userDTO.clone();
-        clonedUserDTO.setUserName("Clone" + clonedUserDTO.getUserName());
-        clonedUserDTO.setFirstName("Clone" + clonedUserDTO.getFirstName());
+        clonedUserDTO.setUserName("Clone " + clonedUserDTO.getUserName());
+        clonedUserDTO.setFirstName("Clone " + clonedUserDTO.getFirstName());
+        clonedUserDTO.setLastName("Clone " + clonedUserDTO.getLastName());
         userService.createUser(clonedUserDTO);
         return "redirect:/login";
     }
@@ -52,13 +58,14 @@ public class UserController {
     @PostMapping("/update")
     public String updateUser(@ModelAttribute UserDTO userDTO) {
         userService.updateUser(userDTO.getId().toString(), userDTO);
-        eventPublisher.publishEvent(new UserUpdateEvent(this, userDTO));
+        eventPublisher.publishEvent(new UserEvent(this, userDTO));
         return "redirect:/user/userManagement";
     }
 
     @PostMapping("/delete")
     public String deleteUser(@ModelAttribute UserDTO userDTO) {
         userService.deleteUser(userDTO.getId().toString());
+        eventPublisher.publishEvent(new UserEvent(this, userDTO));
         return "redirect:/user/userManagement";
     }
 

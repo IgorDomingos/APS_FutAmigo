@@ -6,11 +6,11 @@ import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
 @Component
-public class UserUpdateEventListener {
-    private static final Logger logger = LoggerFactory.getLogger(UserUpdateEventListener.class);
+public class UserEventListener {
+    private static final Logger logger = LoggerFactory.getLogger(UserEventListener.class);
     @EventListener
-    public void handleUserUpdateEvent(UserUpdateEvent event) {
+    public void handleUserEvent(UserEvent event) {
         UserDTO updatedUser = event.getUserDTO();
-        logger.info("UserUpdateEvent handled with UserDTO: {}", updatedUser);
+        logger.info("User Event handled with UserDTO: {}", updatedUser);
     }
 }

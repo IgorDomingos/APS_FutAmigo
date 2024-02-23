@@ -12,7 +12,9 @@
 <h2>Update User</h2>
 <form th:action="@{/user/update}" method="post" id="updateUserForm">
     <label for="id">ID:</label><br>
-    <input type="text" id="id" name="id"><br>
+    <select id="id" name="id">
+        <option th:each="user : ${users}" th:value="${user.id}" th:text="${user.userName}"></option>
+    </select><br>
     <label for="firstName">First Name:</label><br>
     <input type="text" id="firstName" name="firstName"><br>
     <label for="lastName">Last Name:</label><br>
@@ -25,7 +27,9 @@
 <h2>Delete User</h2>
 <form th:action="@{/user/delete}" method="post" id="deleteUserForm">
     <label for="id">ID:</label><br>
-    <input type="text" id="id" name="id"><br>
+    <select id="id" name="id">
+        <option th:each="user : ${users}" th:value="${user.id}" th:text="${user.userName}"></option>
+    </select><br>
     <input type="submit" value="Delete User">
 </form>
 
