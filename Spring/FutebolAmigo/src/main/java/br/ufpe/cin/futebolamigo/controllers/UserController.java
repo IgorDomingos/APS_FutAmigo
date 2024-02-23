@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
+
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/user")
@@ -38,6 +40,7 @@ public class UserController {
         userService.createUser(userDTO);
         UserDTO clonedUserDTO = (UserDTO) userDTO.clone();
         clonedUserDTO.setUserName("Clone" + clonedUserDTO.getUserName());
+        clonedUserDTO.setFirstName("Clone" + clonedUserDTO.getFirstName());
         userService.createUser(clonedUserDTO);
         return "redirect:/login";
     }
@@ -65,10 +68,11 @@ public class UserController {
         return "redirect:/user/userManagement";
     }
 
-    @PostMapping("/findAll")
-    public String findAllUsers(@ModelAttribute UserDTO userDTO) {
-        userService.findAllUsers();
-        return "redirect:/user/userManagement";
+    @GetMapping("/show")
+    public String show(Model model) {
+        List<UserDTO> users = userService.findAllUsers();
+        model.addAttribute("users", users);
+        return "show";
     }
 
     @PostMapping("/findGestor")
