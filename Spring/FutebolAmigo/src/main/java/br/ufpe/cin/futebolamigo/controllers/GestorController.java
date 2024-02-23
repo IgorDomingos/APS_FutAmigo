@@ -1,6 +1,7 @@
 package br.ufpe.cin.futebolamigo.controllers;
 
 import br.ufpe.cin.futebolamigo.dto.GestorDTO;
+import br.ufpe.cin.futebolamigo.dto.JogadorDTO;
 import br.ufpe.cin.futebolamigo.dto.TimeDTO;
 import br.ufpe.cin.futebolamigo.dto.UserDTO;
 import br.ufpe.cin.futebolamigo.services.GestorService;
@@ -36,6 +37,10 @@ public class GestorController {
     public List<TimeDTO> getAllTimes() {
         return timeService.findAllTimes();
     }
+    @ModelAttribute("jogadores")
+    public List<JogadorDTO> getAllJogadores() {
+        return jogadorService.findAllJogadores();
+    }
     @GetMapping("/create")
     public String gestorCreate(Model model) {
         model.addAttribute("gestor", new GestorDTO());
@@ -63,7 +68,6 @@ public class GestorController {
     @GetMapping("/createTime")
     public String createTime(Model model) {
         model.addAttribute("time", new TimeDTO());
-        model.addAttribute("todosOsJogadores", jogadorService.findAllJogadores());
         return "createTime";
     }
 
