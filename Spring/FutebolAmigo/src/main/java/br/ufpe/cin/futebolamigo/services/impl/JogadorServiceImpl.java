@@ -39,6 +39,11 @@ public class JogadorServiceImpl implements JogadorService {
         return mapper.convertToDto(updatedJogador);
     }
 
+//    @Override
+//    public List<JogadorDTO> findJogadoresByTimeId(Long timeId) {
+//        return repository.findByTimeId(timeId);
+//    }
+
     @Override
     public void deleteJogador(String cpf) {
         repository.deleteByCpf(cpf);
