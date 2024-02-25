@@ -20,5 +20,8 @@ public class Time {
     private List<Jogador> jogador;
     private String corP;
     private String corS;
-    private String escudo;
+
+    public List<Jogador> getJogadores() {
+        return this.jogador;
+    }
 }

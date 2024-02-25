@@ -23,4 +23,6 @@ public interface TimeService {
 
     void deleteTime(String nome);
 
+    void save(Time time);
+
 }

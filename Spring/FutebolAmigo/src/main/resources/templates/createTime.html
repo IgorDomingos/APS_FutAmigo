@@ -27,17 +27,6 @@
             <label for="corS">Cor Secundária:</label>
             <input type="text" id="corS" th:field="*{corS}" placeholder="Cor Secundária" required>
         </div>
-        <div class="form-group">
-            <label for="escudo">Escudo:</label>
-            <input type="text" id="escudo" th:field="*{escudo}" placeholder="Escudo" required>
-        </div>
-        <div class="form-group">
-            <label>Jogadores:</label>
-            <div th:each="jogador : *{jogadores}">
-                <input type="checkbox" th:value="${jogador.cpf}" th:field="*{jogadores}" th:id="${'jogador'+jogadorStat.index}">
-                <label th:for="${'jogador'+jogadorStat.index}" th:text="${jogador.idUser}"></label>
-            </div>
-        </div>
         <button type="submit">Create</button>
     </form>
 </div>

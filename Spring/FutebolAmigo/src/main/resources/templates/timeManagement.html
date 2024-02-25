@@ -23,6 +23,20 @@
     <input type="submit" value="Delete Time">
 </form>
 
+<h2>Add Players to Time</h2>
+<form th:action="@{/time/addPlayer}" method="post" id="addPlayerForm">
+    <option value="">Selecione o time</option>
+    <select class="form-input" th:field="*{times}" name="time" id="time">
+        <option th:each="time : ${times}" th:value="${time.nome}" th:text="${time.nome}"></option>
+    </select>
+    <label for="jogadores">Jogadores:</label><br>
+    <select id="jogadores" name="jogadores" multiple>
+        <option th:each="jogador : ${jogadores}" th:value="${jogador.cpf}" th:text="${jogador.cpf}"></option>
+    </select>
+    <input type="submit" value="Add Players">
+</form>
+
+
 
 <script th:src="@{/js/timeManagement.js}"></script>
 </body>
