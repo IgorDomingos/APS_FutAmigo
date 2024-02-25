@@ -1,14 +1,14 @@
 package br.ufpe.cin.futebolamigo.models;
 
+import br.ufpe.cin.futebolamigo.decorator.JogadorInterface;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import java.util.Date;
 
 @Entity
 @Getter @Setter
 @Table(name = "jogadores")
-public class Jogador {
+public class Jogador implements JogadorInterface {
     @Id
     private String cpf;
     @ManyToOne
