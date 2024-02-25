@@ -16,6 +16,5 @@ public class TimeDTO {
     private List<JogadorDTO> jogadores;
     private String corP;
     private String corS;
-    private String escudo;
 
 }
