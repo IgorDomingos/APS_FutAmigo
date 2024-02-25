@@ -41,6 +41,10 @@ public class GestorController {
     public List<JogadorDTO> getAllJogadores() {
         return jogadorService.findAllJogadores();
     }
+    @ModelAttribute("gestores")
+    public List<GestorDTO> getAllGestores() {
+        return gestorService.findAllGestores();
+    }
     @GetMapping("/create")
     public String gestorCreate(Model model) {
         model.addAttribute("gestor", new GestorDTO());
@@ -74,7 +78,7 @@ public class GestorController {
     @PostMapping("/createTime")
     public String saveTime(@ModelAttribute("time") TimeDTO timeDTO) {
         timeService.createTime(timeDTO);
-        return "createTime";
+        return "gestorManagement";
 
     }
 
