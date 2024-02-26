@@ -19,5 +19,7 @@ public interface JogadorService {
     List<JogadorDTO> findAllJogadores();
     void deleteJogador(String cpf);
 
+    void updateSkills(String cpf, String skills);
+
 //    List<JogadorDTO> findJogadoresByTimeId(Long timeId);
 }

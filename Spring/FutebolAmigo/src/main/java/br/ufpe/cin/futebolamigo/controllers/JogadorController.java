@@ -24,11 +24,20 @@ public class JogadorController {
     public List<UserDTO> getAllUsers() {
         return userService.findAllUsers();
     }
+    @ModelAttribute("jogadores")
+    public List<JogadorDTO> getAllJogadores() {
+        return jogadorService.findAllJogadores();
+    }
 
     @GetMapping("/create")
     public String jogadorCreate(Model model) {
         model.addAttribute("jogador", new JogadorDTO());
         return "signupJogador";
+    }
+
+    @GetMapping("/jogadorManagement")
+    public String jogadorManagement() {
+        return "jogadorManagement";
     }
     @PostMapping("/create")
     public String jogadorSave(@ModelAttribute("jogador") JogadorDTO jogadorDTO) {
@@ -45,6 +54,12 @@ public class JogadorController {
     @PostMapping("/delete")
     public String deleteJogador(@ModelAttribute JogadorDTO jogadorDTO) {
         jogadorService.deleteJogador(jogadorDTO.getCpf());
+        return "jogadorManagement";
+    }
+
+    @PostMapping("/updateSkills")
+    public String updateSkills(@RequestParam("cpf") String cpf, @RequestParam("skills") String skills) {
+        jogadorService.updateSkills(cpf, skills);
         return "jogadorManagement";
     }
 

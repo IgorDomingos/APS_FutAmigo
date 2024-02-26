@@ -1,5 +1,6 @@
 package br.ufpe.cin.futebolamigo.services.impl;
 
+import br.ufpe.cin.futebolamigo.decorator.JogadorWithSkills;
 import br.ufpe.cin.futebolamigo.repositories.JogadorRepository;
 import br.ufpe.cin.futebolamigo.dto.JogadorDTO;
 import br.ufpe.cin.futebolamigo.models.Jogador;
@@ -43,6 +44,16 @@ public class JogadorServiceImpl implements JogadorService {
 //    public List<JogadorDTO> findJogadoresByTimeId(Long timeId) {
 //        return repository.findByTimeId(timeId);
 //    }
+
+    @Override
+    public void updateSkills(String cpf, String skills) {
+        Jogador jogador = repository.findByCpf(cpf);
+        if (jogador != null) {
+            JogadorWithSkills jogadorWithSkills = new JogadorWithSkills(jogador, skills);
+            jogador.setSkills(jogadorWithSkills.getSkills());
+            repository.save(jogador);
+        }
+    }
 
     @Override
     public void deleteJogador(String cpf) {

@@ -11,4 +11,7 @@ public interface JogadorInterface {
     double getPeso();
     double getAltura();
     String getPosicao();
+    void updateSkills(String cpf, String skills);
+
+    void setSkills(String skills);
 }

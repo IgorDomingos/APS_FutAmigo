@@ -21,4 +21,14 @@ public class Jogador implements JogadorInterface {
     private double peso;
     private double altura;
     private String posicao;
+
+    @Override
+    public void updateSkills(String cpf, String skills) {
+
+    }
+
+    @Override
+    public void setSkills(String skills) {
+
+    }
 }

@@ -16,6 +16,54 @@
     <input type="submit" value="Update Jogador">
 </form>
 
+<h2>Update Jogador Skills</h2>
+<form th:action="@{/jogador/updateSkills}" method="post" id="updateSkillsForm">
+    <label for="cpf">CPF:</label><br>
+    <select id="cpf" name="cpf" required>
+        <option value="">Selecione um jogador</option>
+        <option th:each="jogador : ${jogadores}" th:value="${jogador.cpf}" th:text="${jogador.cpf}"></option>
+    </select><br>
+    <label for="skills">Skills:</label><br>
+    <select id="skills" name="skills" multiple required>
+        <option value="Powershot">Powershot</option>
+        <option value="Deadball">Deadball</option>
+        <option value="Chipshot">Chipshot</option>
+        <option value="Finesse Shot">Finesse Shot</option>
+        <option value="Power Header">Power Header</option>
+        <option value="Passe">Passe</option>
+        <option value="Pinged passes">Pinged passes</option>
+        <option value="Incisive pass">Incisive pass</option>
+        <option value="Long ball pass">Long ball pass</option>
+        <option value="Tiki Taka">Tiki Taka</option>
+        <option value="Whipped pass">Whipped pass</option>
+        <option value="First touch">First touch</option>
+        <option value="Flair">Flair</option>
+        <option value="Press proven">Press proven</option>
+        <option value="Rapid">Rapid</option>
+        <option value="Technical">Technical</option>
+        <option value="Trickster">Trickster</option>
+        <option value="Block">Block</option>
+        <option value="Bruiser">Bruiser</option>
+        <option value="Intercept">Intercept</option>
+        <option value="Jockey">Jockey</option>
+        <option value="Slide tackle">Slide tackle</option>
+        <option value="Antecipate">Antecipate</option>
+        <option value="Acrobatic">Acrobatic</option>
+        <option value="Aerial">Aerial</option>
+        <option value="Trivela">Trivela</option>
+        <option value="Relentless">Relentless</option>
+        <option value="Quick step">Quick step</option>
+        <option value="Long throw">Long throw</option>
+        <option value="Far throw">Far throw</option>
+        <option value="Footwork">Footwork</option>
+        <option value="Cross claimer">Cross claimer</option>
+        <option value="Rush out">Rush out</option>
+        <option value="Far reach">Far reach</option>
+        <option value="Quick reflexes">Quick reflexes</option>
+    </select><br>
+    <input type="submit" value="Update Skills">
+</form>
+
 <script th:src="@{/js/jogadorManagement.js}"></script>
 </body>
 </html>
