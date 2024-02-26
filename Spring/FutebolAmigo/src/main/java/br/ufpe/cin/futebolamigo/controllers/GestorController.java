@@ -45,6 +45,11 @@ public class GestorController {
     public List<GestorDTO> getAllGestores() {
         return gestorService.findAllGestores();
     }
+
+    @GetMapping("/gestorManagement")
+    public String gestorManagement() {
+        return "gestorManagement";
+    }
     @GetMapping("/create")
     public String gestorCreate(Model model) {
         model.addAttribute("gestor", new GestorDTO());
