@@ -1,48 +1,96 @@
 package br.ufpe.cin.futebolamigo.controllers;
 
+import br.ufpe.cin.futebolamigo.dto.GestorDTO;
+import br.ufpe.cin.futebolamigo.dto.JogadorDTO;
+import br.ufpe.cin.futebolamigo.dto.TimeDTO;
+import br.ufpe.cin.futebolamigo.dto.UserDTO;
+import br.ufpe.cin.futebolamigo.mapper.JogadorMapper;
+import br.ufpe.cin.futebolamigo.mapper.TimeMapper;
 import br.ufpe.cin.futebolamigo.models.Jogador;
 import br.ufpe.cin.futebolamigo.models.Time;
+import br.ufpe.cin.futebolamigo.services.GestorService;
+import br.ufpe.cin.futebolamigo.services.JogadorService;
 import br.ufpe.cin.futebolamigo.services.TimeService;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.web.PageableDefault;
-import org.springframework.http.ResponseEntity;
+import br.ufpe.cin.futebolamigo.services.UserService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.util.UriComponentsBuilder;
 
-import java.util.Optional;
+import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping("/time")
+@RequiredArgsConstructor
 public class TimeController {
-
-    public TimeController(TimeService timeService) {
-        this.timeService = timeService;
-    }
     private final TimeService timeService;
+    private final GestorService gestorService;
+    private final JogadorService jogadorService;
+    private final UserService userService;
 
-    @PostMapping
-    public ResponseEntity create(@RequestBody Time time, UriComponentsBuilder bodybuilder){
-        var aux = timeService.createTime(time);
-        var uri = bodybuilder.path("/time/{nome}").buildAndExpand(aux.getNome()).toUri();
-        return ResponseEntity.created(uri).body(aux);
+    @Autowired
+    private final JogadorMapper jogadorMapper;
+    private final TimeMapper timeMapper;
+
+    @ModelAttribute("users")
+    public List<UserDTO> getAllUsers() {
+        return userService.findAllUsers();
+    }
+    @ModelAttribute("times")
+    public List<TimeDTO> getAllTimes() {
+        return timeService.findAllTimes();
+    }
+    @ModelAttribute("gestores")
+    public List<GestorDTO> getAllGestores() {
+        return gestorService.findAllGestores();
+    }
+    @ModelAttribute("jogadores")
+    public List<JogadorDTO> getAllJogadores() {
+        return jogadorService.findAllJogadores();
+    }
+    @GetMapping("/timeManagement")
+    public String timeManagement() {
+        return "timeManagement";
     }
 
-    @GetMapping
-    public ResponseEntity<Page<Time>> getAll(@PageableDefault Pageable page) {
-        Page<Time> times = timeService.getAllTimes(page);
-        return ResponseEntity.ok(times);
+    @PostMapping("/update")
+    public String updateTime(@ModelAttribute TimeDTO timeDTO) {
+        timeService.updateTime(timeDTO);
+        return "timeManagement";
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Time> getById(@PathVariable long id) {
-        Optional<Time> time = timeService.getTimeById(id);
-        return time.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
+    @PostMapping("/delete")
+    public String deleteTime(@ModelAttribute TimeDTO timeDTO) {
+        timeService.deleteTime(timeDTO.getNome());
+        return "timeManagement";
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable long id) {
-        timeService.deleteTime(id);
-        return ResponseEntity.noContent().build();
+    @PostMapping("/find")
+    public String findTime(@ModelAttribute TimeDTO timeDTO) {
+        timeService.findByNome(timeDTO.getNome());
+        return "timeManagement";
     }
+
+    @PostMapping("/addPlayer")
+    public String addPlayerToTime(@RequestParam("time") String nomeTime, @RequestParam("jogadores") List<String> cpfJogadores) {
+        // Buscar o time pelo nome
+        Time time = timeService.findByNome(nomeTime);
+
+        // Para cada cpf de jogador recebido, buscar o jogador correspondente e adicioná-lo à lista de jogadores do time
+        for (String cpf : cpfJogadores) {
+            Jogador jogador = jogadorService.findByCpf(cpf);
+            time.getJogadores().add(jogador);
+        }
+
+        // Converter o Time para TimeDTO
+        TimeDTO timeDTO = timeMapper.convertToDto(time);
+
+        // Salvar o time atualizado no banco de dados
+        timeService.updateTime(timeDTO);
+
+        // Redirecionar para a página de gerenciamento de times
+        return "redirect:/time/timeManagement";
+    }
+
 }

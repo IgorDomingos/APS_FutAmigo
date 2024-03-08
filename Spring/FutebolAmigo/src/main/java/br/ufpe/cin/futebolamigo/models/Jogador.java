@@ -1,27 +1,34 @@
 package br.ufpe.cin.futebolamigo.models;
 
+import br.ufpe.cin.futebolamigo.decorator.JogadorInterface;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
-import java.util.Date;
 
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
 @Getter @Setter
 @Table(name = "jogadores")
-public class Jogador {
+public class Jogador implements JogadorInterface {
     @Id
     private String cpf;
-    private String nome;
-    private String email;
     @ManyToOne
-    @JoinColumn(name = "id_time")
+    @JoinColumn(name = "nome_time")
     private Time time;
-    private Date idade;
+    @OneToOne
+    @JoinColumn(name = "id_user")
+    private User user;
+    private String idade;
     private double peso;
     private double altura;
     private String posicao;
+
+    @Override
+    public void updateSkills(String cpf, String skills) {
+
+    }
+
+    @Override
+    public void setSkills(String skills) {
+
+    }
 }

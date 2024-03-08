@@ -1,22 +1,19 @@
 package br.ufpe.cin.futebolamigo.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
-import lombok.AllArgsConstructor;
+import jakarta.persistence.*;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter @Setter
+@Getter
+@Setter
 public class Gestor {
     @Id
-    private String cpf;
-    private String nome;
-    private String email;
-    @OneToOne(mappedBy = "gestor")
+    private String cpfGestor;
+    @OneToOne
+    @JoinColumn(name = "id_user")
+    private User user;
+    @OneToOne
+    @JoinColumn(name = "nome_time")
     private Time time;
 }

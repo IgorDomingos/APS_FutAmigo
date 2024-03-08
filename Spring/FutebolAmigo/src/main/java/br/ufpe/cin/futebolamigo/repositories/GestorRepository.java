@@ -5,4 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface GestorRepository extends JpaRepository<Gestor, String> {
 
+    Gestor findByCpfGestor(String cpf);
+
+    void deleteByCpfGestor(String cpf);
 }

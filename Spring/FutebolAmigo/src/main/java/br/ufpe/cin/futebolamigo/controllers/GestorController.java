@@ -1,55 +1,92 @@
 package br.ufpe.cin.futebolamigo.controllers;
 
-import br.ufpe.cin.futebolamigo.models.Gestor;
+import br.ufpe.cin.futebolamigo.dto.GestorDTO;
+import br.ufpe.cin.futebolamigo.dto.JogadorDTO;
+import br.ufpe.cin.futebolamigo.dto.TimeDTO;
+import br.ufpe.cin.futebolamigo.dto.UserDTO;
 import br.ufpe.cin.futebolamigo.services.GestorService;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.web.PageableDefault;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.util.UriComponentsBuilder;
+import br.ufpe.cin.futebolamigo.services.JogadorService;
+import br.ufpe.cin.futebolamigo.services.TimeService;
+import br.ufpe.cin.futebolamigo.services.UserService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.ui.Model;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.Optional;
+import java.util.List;
 
-@RestController
+
+@Controller
 @RequestMapping("/gestor")
-//@RequiredArgsConstructor
+@RequiredArgsConstructor
 public class GestorController {
-
-    public GestorController(GestorService gestorService) {
-        this.gestorService = gestorService;
-    }
+    private final UserService userService;
     private final GestorService gestorService;
+    private final TimeService timeService;
+    private final JogadorService jogadorService;
 
-    @PostMapping
-    public ResponseEntity create(@RequestBody Gestor gestor, UriComponentsBuilder bodybuilder){
-        var aux = gestorService.createGestor(gestor);
-        var uri = bodybuilder.path("/gestor/{id}").buildAndExpand(aux.getCpf()).toUri();
-        return ResponseEntity.created(uri).body(aux);
+
+    @ModelAttribute("users")
+    public List<UserDTO> getAllUsers() {
+        return userService.findAllUsers();
     }
-    @GetMapping
-    public ResponseEntity<Page<Gestor>> getAll(@PageableDefault Pageable page) {
-        Page<Gestor> gestores = gestorService.getAllGestores(page);
-        return ResponseEntity.ok(gestores);
+    @ModelAttribute("times")
+    public List<TimeDTO> getAllTimes() {
+        return timeService.findAllTimes();
+    }
+    @ModelAttribute("jogadores")
+    public List<JogadorDTO> getAllJogadores() {
+        return jogadorService.findAllJogadores();
+    }
+    @ModelAttribute("gestores")
+    public List<GestorDTO> getAllGestores() {
+        return gestorService.findAllGestores();
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Gestor> getById(@PathVariable String id) {
-        Optional<Gestor> gestor = gestorService.getGestorById(id);
-        return gestor.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
+    @GetMapping("/gestorManagement")
+    public String gestorManagement() {
+        return "gestorManagement";
+    }
+    @GetMapping("/create")
+    public String gestorCreate(Model model) {
+        model.addAttribute("gestor", new GestorDTO());
+        return "signupGestor";
     }
 
-//    @PutMapping("/{id}")
-//    public ResponseEntity<Gestor> update(@PathVariable Long id, @RequestBody Gestor gestor) {
-//        Gestor updatedGestor = gestorService.updateGestor(id, gestor);
-//        return updatedGestor != null ?
-//                ResponseEntity.ok(updatedGestor) :
-//                ResponseEntity.notFound().build();
-//    }
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable String id) {
-        gestorService.deleteGestor(id);
-        return ResponseEntity.noContent().build();
+    @PostMapping("/create")
+    public String gestorSave(@ModelAttribute("gestor") GestorDTO gestorDTO) {
+        gestorService.createGestor(gestorDTO);
+        return "gestorManagement";
     }
+
+    @PostMapping("/update")
+    public String updateGestor(@ModelAttribute GestorDTO gestorDTO) {
+        gestorService.updateGestor(gestorDTO);
+        return "gestorManagement";
+    }
+
+    @PostMapping("/delete")
+    public String deleteGestor(@ModelAttribute GestorDTO gestorDTO) {
+        gestorService.deleteGestor(gestorDTO.getCpfGestor());
+        return "gestorManagement";
+    }
+
+    @GetMapping("/createTime")
+    public String createTime(Model model) {
+        model.addAttribute("time", new TimeDTO());
+        return "createTime";
+    }
+
+    @PostMapping("/createTime")
+    public String saveTime(@ModelAttribute("time") TimeDTO timeDTO) {
+        timeService.createTime(timeDTO);
+        return "gestorManagement";
+
+    }
+
+
+
 }

@@ -1,29 +1,29 @@
 package br.ufpe.cin.futebolamigo.services;
 
+import br.ufpe.cin.futebolamigo.dto.TimeDTO;
 import br.ufpe.cin.futebolamigo.models.Time;
 import br.ufpe.cin.futebolamigo.repositories.TimeRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
-public class TimeService {
+public interface TimeService {
 
-    public TimeService(TimeRepository timeRepository) {
-        this.timeRepository = timeRepository;
-    }
+    TimeDTO createTime(TimeDTO timeDTO);
 
-    private TimeRepository timeRepository;
+    Time findByNome(String nome);
 
-    public Time createTime(Time time) {
-        return timeRepository.save(time);
-    }
+    List<TimeDTO> findAllTimes();
 
-    public Page<Time> getAllTimes(Pageable page) {
-        return timeRepository.findAll(page);
-    }
+    TimeDTO updateTime(TimeDTO timeDTO);
+
+    void deleteTime(String nome);
+
+    void save(Time time);
 
     public Optional<Time> getTimeById(Long timeId) {
         return timeRepository.findById(timeId);
