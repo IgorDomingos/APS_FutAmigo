@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up</title>
+    <link rel="stylesheet" th:href="@{/css/signupJogador.css}">
+</head>
+<body>
+
+<div class="main">
+    <section class="signup">
+        <div class="container m-5" >
+            <div class="signup-content">
+                <form th:action="@{/jogador/create}" th:object="${jogador}" method="post" id="signup-form" class="signup-form">
+                    <h2 class="form-title">Become a Player</h2>
+                    <div class="form-group">
+                        <label for="idUser">Usuário:</label>
+                        <select class="form-input" th:field="*{idUser}" name="idUser" id="idUser" required>
+                            <option value="">Selecione o usuário</option>
+                            <option th:each="user : ${users}" th:value="${user.id}" th:text="${user.firstName}"></option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="text"  class="form-input" th:field="*{cpf}" name="cpf" id="cpf" placeholder="CPF" required/>
+                    </div>
+                    <div class="form-group">
+                        <label for="idade">Idade:</label>
+                        <input type="text" class="form-input" th:field="*{idade}" name="idade" id="idade" placeholder="Idade" required/>
+                    </div>
+                    <div class="form-group">
+                        <label for="altura">Altura (em metros):</label>
+                        <input type="text"  class="form-input" th:field="*{altura}" name="altura" id="altura" placeholder="Altura" required/>
+                    </div>
+                    <div class="form-group">
+                        <label for="peso">Peso (em quilogramas):</label>
+                        <input type="text"  class="form-input" th:field="*{peso}" name="peso" id="peso" placeholder="Peso" required/>
+                    </div>
+                    <div class="form-group">
+                        <label for="posicao">Posição:</label>
+                        <select class="form-input" th:field="*{posicao}" name="posicao" id="posicao" required>
+                            <option value="">Selecione a posição</option>
+                            <option value="Goleiro">Goleiro</option>
+                            <option value="Zagueiro">Zagueiro</option>
+                            <option value="Líbero">Líbero</option>
+                            <option value="Lateral">Lateral</option>
+                            <option value="Volante">Volante</option>
+                            <option value="Ala">Ala</option>
+                            <option value="Meia de contenção">Meia de contenção</option>
+                            <option value="Meia de armação">Meia de armação</option>
+                            <option value="Meia extremado">Meia extremado</option>
+                            <option value="Meia atacante">Meia atacante</option>
+                            <option value="Atacante recuado">Atacante recuado</option>
+                            <option value="Atacante de beirada">Atacante de beirada</option>
+                            <option value="Atacante de área">Atacante de área</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" name="submit" id="submit" class="form-submit" value="Sign up"/>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+<script th:src="@{/js/jquery.signup.js}"></script>
+<script th:src="@{/js/signup.js}"></script>
+</body>
+</html>
