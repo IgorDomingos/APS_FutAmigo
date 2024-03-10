@@ -1,4 +1,4 @@
-package br.ufpe.cin.futebolamigo.models;
+package br.ufpe.cin.futebolamigouser.models;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -13,7 +13,7 @@ public class Gestor {
     @OneToOne
     @JoinColumn(name = "id_user")
     private User user;
-    @OneToOne
-    @JoinColumn(name = "nome_time")
-    private Time time;
+//    @OneToOne
+//    @JoinColumn(name = "nome_time")
+//    private Time time;
 }

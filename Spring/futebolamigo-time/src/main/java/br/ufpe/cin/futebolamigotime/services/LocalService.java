@@ -1,7 +1,7 @@
-package br.ufpe.cin.futebolamigo.services;
+package br.ufpe.cin.futebolamigotime.services;
 
-import br.ufpe.cin.futebolamigo.models.Local;
-import br.ufpe.cin.futebolamigo.repositories.LocalRepository;
+import br.ufpe.cin.futebolamigotime.models.Local;
+import br.ufpe.cin.futebolamigotime.repositories.LocalRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;

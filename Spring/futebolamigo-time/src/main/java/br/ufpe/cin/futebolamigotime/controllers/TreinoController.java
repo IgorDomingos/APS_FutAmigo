@@ -1,7 +1,7 @@
-package br.ufpe.cin.futebolamigo.controllers;
+package br.ufpe.cin.futebolamigotime.controllers;
 
-import br.ufpe.cin.futebolamigo.models.Treino;
-import br.ufpe.cin.futebolamigo.services.TreinoService;
+import br.ufpe.cin.futebolamigotime.models.Treino;
+import br.ufpe.cin.futebolamigotime.services.TreinoService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;

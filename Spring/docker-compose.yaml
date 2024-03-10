@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+  dbUser:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: futebol-amigo-user
+      POSTGRES_USER: security-user
+      POSTGRES_PASSWORD: abc1
+    volumes:
+      - db-user-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+  dbTime:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: futebol-amigo-time
+      POSTGRES_USER: security-time
+      POSTGRES_PASSWORD: abc1
+    volumes:
+      - db-time-data:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: futebolamigo@email.com
+      PGADMIN_DEFAULT_PASSWORD: futebolamigo
+    ports:
+      - "9000:80"
+volumes:
+  db-user-data:
+  db-time-data:

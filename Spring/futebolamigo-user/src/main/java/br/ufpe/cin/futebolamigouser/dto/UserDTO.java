@@ -1,7 +1,7 @@
-package br.ufpe.cin.futebolamigo.dto;
+package br.ufpe.cin.futebolamigouser.dto;
 
-import br.ufpe.cin.futebolamigo.models.User;
-import br.ufpe.cin.futebolamigo.services.impl.Prototype;
+import br.ufpe.cin.futebolamigouser.models.User;
+import br.ufpe.cin.futebolamigouser.services.impl.Prototype;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

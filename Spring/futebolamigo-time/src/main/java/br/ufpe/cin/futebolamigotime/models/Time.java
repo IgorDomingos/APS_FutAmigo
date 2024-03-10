@@ -1,4 +1,4 @@
-package br.ufpe.cin.futebolamigo.models;
+package br.ufpe.cin.futebolamigotime.models;
 
 import jakarta.persistence.*;
 import jakarta.persistence.Entity;
@@ -13,15 +13,15 @@ import java.util.List;
 public class Time {
     @Id
     private String nome;
-    @OneToOne
-    @JoinColumn(name = "cpf_gestor")
-    private Gestor gestor;
-    @OneToMany(mappedBy = "time")
-    private List<Jogador> jogador;
+//    @OneToOne
+//    @JoinColumn(name = "cpf_gestor")
+//    private Gestor gestor;
+//    @OneToMany(mappedBy = "time")
+//    private List<Jogador> jogador;
     private String corP;
     private String corS;
 
-    public List<Jogador> getJogadores() {
-        return this.jogador;
-    }
+//    public List<Jogador> getJogadores() {
+//        return this.jogador;
+//    }
 }

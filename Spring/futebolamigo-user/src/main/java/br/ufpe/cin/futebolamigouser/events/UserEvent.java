@@ -1,6 +1,6 @@
-package br.ufpe.cin.futebolamigo.events;
+package br.ufpe.cin.futebolamigouser.events;
 
-import br.ufpe.cin.futebolamigo.dto.UserDTO;
+import br.ufpe.cin.futebolamigouser.dto.UserDTO;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.context.ApplicationEvent;

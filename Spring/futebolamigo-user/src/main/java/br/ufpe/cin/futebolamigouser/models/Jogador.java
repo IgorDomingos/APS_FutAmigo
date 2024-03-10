@@ -1,6 +1,6 @@
-package br.ufpe.cin.futebolamigo.models;
+package br.ufpe.cin.futebolamigouser.models;
 
-import br.ufpe.cin.futebolamigo.decorator.JogadorInterface;
+import br.ufpe.cin.futebolamigouser.decorator.JogadorInterface;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,9 +11,9 @@ import lombok.Setter;
 public class Jogador implements JogadorInterface {
     @Id
     private String cpf;
-    @ManyToOne
-    @JoinColumn(name = "nome_time")
-    private Time time;
+//    @ManyToOne
+//    @JoinColumn(name = "nome_time")
+//    private Time time;
     @OneToOne
     @JoinColumn(name = "id_user")
     private User user;

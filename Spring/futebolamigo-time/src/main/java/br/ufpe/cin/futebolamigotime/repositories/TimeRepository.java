@@ -1,6 +1,6 @@
-package br.ufpe.cin.futebolamigo.repositories;
+package br.ufpe.cin.futebolamigotime.repositories;
 
-import br.ufpe.cin.futebolamigo.models.Time;
+import br.ufpe.cin.futebolamigotime.models.Time;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

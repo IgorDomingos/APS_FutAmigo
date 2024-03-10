@@ -1,7 +1,7 @@
-package br.ufpe.cin.futebolamigo.services;
+package br.ufpe.cin.futebolamigouser.services;
 
-import br.ufpe.cin.futebolamigo.dto.UserDTO;
-import br.ufpe.cin.futebolamigo.models.User;
+import br.ufpe.cin.futebolamigouser.dto.UserDTO;
+import br.ufpe.cin.futebolamigouser.models.User;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package br.ufpe.cin.futebolamigo.dto;
+package br.ufpe.cin.futebolamigotime.dto;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -13,7 +13,7 @@ public class TimeDTO {
 
     private String nome;
     private String cpfGestor;
-    private List<JogadorDTO> jogadores;
+//    private List<JogadorDTO> jogadores;
     private String corP;
     private String corS;
 

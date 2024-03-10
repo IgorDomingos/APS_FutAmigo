@@ -1,9 +1,9 @@
-package br.ufpe.cin.futebolamigo.controllers;
+package br.ufpe.cin.futebolamigouser.controllers;
 
-import br.ufpe.cin.futebolamigo.dto.JogadorDTO;
-import br.ufpe.cin.futebolamigo.dto.UserDTO;
-import br.ufpe.cin.futebolamigo.services.JogadorService;
-import br.ufpe.cin.futebolamigo.services.UserService;
+import br.ufpe.cin.futebolamigouser.dto.JogadorDTO;
+import br.ufpe.cin.futebolamigouser.dto.UserDTO;
+import br.ufpe.cin.futebolamigouser.services.JogadorService;
+import br.ufpe.cin.futebolamigouser.services.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

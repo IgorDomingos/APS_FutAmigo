@@ -1,13 +1,13 @@
-package br.ufpe.cin.futebolamigo.controllers;
+package br.ufpe.cin.futebolamigouser.controllers;
 
-import br.ufpe.cin.futebolamigo.dto.GestorDTO;
-import br.ufpe.cin.futebolamigo.dto.JogadorDTO;
-import br.ufpe.cin.futebolamigo.dto.TimeDTO;
-import br.ufpe.cin.futebolamigo.dto.UserDTO;
-import br.ufpe.cin.futebolamigo.services.GestorService;
-import br.ufpe.cin.futebolamigo.services.JogadorService;
-import br.ufpe.cin.futebolamigo.services.TimeService;
-import br.ufpe.cin.futebolamigo.services.UserService;
+import br.ufpe.cin.futebolamigouser.dto.GestorDTO;
+import br.ufpe.cin.futebolamigouser.dto.JogadorDTO;
+//import br.ufpe.cin.futebolamigouser.dto.TimeDTO;
+import br.ufpe.cin.futebolamigouser.dto.UserDTO;
+import br.ufpe.cin.futebolamigouser.services.GestorService;
+import br.ufpe.cin.futebolamigouser.services.JogadorService;
+//import br.ufpe.cin.futebolamigouser.services.TimeService;
+import br.ufpe.cin.futebolamigouser.services.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.ui.Model;
 import org.springframework.stereotype.Controller;
@@ -25,7 +25,7 @@ import java.util.List;
 public class GestorController {
     private final UserService userService;
     private final GestorService gestorService;
-    private final TimeService timeService;
+//    private final TimeService timeService;
     private final JogadorService jogadorService;
 
 
@@ -33,10 +33,10 @@ public class GestorController {
     public List<UserDTO> getAllUsers() {
         return userService.findAllUsers();
     }
-    @ModelAttribute("times")
-    public List<TimeDTO> getAllTimes() {
-        return timeService.findAllTimes();
-    }
+//    @ModelAttribute("times")
+//    public List<TimeDTO> getAllTimes() {
+//        return timeService.findAllTimes();
+//    }
     @ModelAttribute("jogadores")
     public List<JogadorDTO> getAllJogadores() {
         return jogadorService.findAllJogadores();
@@ -74,18 +74,18 @@ public class GestorController {
         return "gestorManagement";
     }
 
-    @GetMapping("/createTime")
-    public String createTime(Model model) {
-        model.addAttribute("time", new TimeDTO());
-        return "createTime";
-    }
-
-    @PostMapping("/createTime")
-    public String saveTime(@ModelAttribute("time") TimeDTO timeDTO) {
-        timeService.createTime(timeDTO);
-        return "gestorManagement";
-
-    }
+//    @GetMapping("/createTime")
+//    public String createTime(Model model) {
+//        model.addAttribute("time", new TimeDTO());
+//        return "createTime";
+//    }
+//
+//    @PostMapping("/createTime")
+//    public String saveTime(@ModelAttribute("time") TimeDTO timeDTO) {
+//        timeService.createTime(timeDTO);
+//        return "gestorManagement";
+//
+//    }
 
 
 
