@@ -80,12 +80,12 @@ public class GestorController {
         return "createTime";
     }
 
-    @PostMapping("/createTime")
-    public String saveTime(@ModelAttribute("time") TimeDTO timeDTO) {
-        timeService.createTime(timeDTO);
-        return "gestorManagement";
-
-    }
+//    @PostMapping("/createTime")
+//    public String saveTime(@ModelAttribute("time") TimeDTO timeDTO) {
+//        timeService.createTime(timeDTO);
+//        return "gestorManagement";
+//
+//    }
 
 
 
