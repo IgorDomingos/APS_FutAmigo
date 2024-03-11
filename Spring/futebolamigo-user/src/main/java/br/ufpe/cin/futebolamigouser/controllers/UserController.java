@@ -4,6 +4,8 @@ import br.ufpe.cin.futebolamigouser.dto.GestorDTO;
 import br.ufpe.cin.futebolamigouser.dto.JogadorDTO;
 //import br.ufpe.cin.futebolamigouser.dto.TimeDTO;
 import br.ufpe.cin.futebolamigouser.dto.UserDTO;
+import br.ufpe.cin.futebolamigouser.events.AnotherUserEventListener;
+import br.ufpe.cin.futebolamigouser.events.Subject;
 import br.ufpe.cin.futebolamigouser.events.UserEvent;
 import br.ufpe.cin.futebolamigouser.services.GestorService;
 import br.ufpe.cin.futebolamigouser.services.JogadorService;
@@ -29,6 +31,8 @@ public class UserController {
     private final JogadorService jogadorService;
 //    private final TimeService timeService;
     private final ApplicationEventPublisher eventPublisher;
+    private final Subject subject;
+    private final AnotherUserEventListener anotherUserEventListener;
 
     @ModelAttribute("users")
     public List<UserDTO> getAllUsers() {
@@ -48,6 +52,9 @@ public class UserController {
         clonedUserDTO.setFirstName("Clone " + clonedUserDTO.getFirstName());
         clonedUserDTO.setLastName("Clone " + clonedUserDTO.getLastName());
         userService.createUser(clonedUserDTO);
+        UserEvent userEvent = new UserEvent(this, userDTO);
+        subject.notifyObservers(userEvent);
+        subject.unsubscribe(anotherUserEventListener);
         return "redirect:/login";
     }
 

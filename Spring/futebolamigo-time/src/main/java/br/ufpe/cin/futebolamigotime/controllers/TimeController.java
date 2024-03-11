@@ -25,32 +25,30 @@ import java.util.List;
 @RequiredArgsConstructor
 public class TimeController {
     private final TimeService timeService;
-//    private final GestorService gestorService;
-//    private final JogadorService jogadorService;
-//    private final UserService userService;
+
 
     @Autowired
-//    private final JogadorMapper jogadorMapper;
+
     private final TimeMapper timeMapper;
 
-//    @ModelAttribute("users")
-//    public List<UserDTO> getAllUsers() {
-//        return userService.findAllUsers();
-//    }
     @ModelAttribute("times")
     public List<TimeDTO> getAllTimes() {
         return timeService.findAllTimes();
     }
-//    @ModelAttribute("gestores")
-//    public List<GestorDTO> getAllGestores() {
-//        return gestorService.findAllGestores();
-//    }
-//    @ModelAttribute("jogadores")
-//    public List<JogadorDTO> getAllJogadores() {
-//        return jogadorService.findAllJogadores();
-//    }
+
     @GetMapping("/timeManagement")
     public String timeManagement() {
+        return "timeManagement";
+    }
+
+    @GetMapping("/create")
+    public String timeCreate(Model model) {
+        model.addAttribute("time", new TimeDTO());
+        return "createTime";
+    }
+    @PostMapping("/create")
+    public String timeSave(@ModelAttribute("time") TimeDTO timeDTO) {
+        timeService.createTime(timeDTO);
         return "timeManagement";
     }
 

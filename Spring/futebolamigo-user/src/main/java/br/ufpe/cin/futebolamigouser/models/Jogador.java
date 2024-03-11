@@ -11,9 +11,7 @@ import lombok.Setter;
 public class Jogador implements JogadorInterface {
     @Id
     private String cpf;
-//    @ManyToOne
-//    @JoinColumn(name = "nome_time")
-//    private Time time;
+    private Long time;
     @OneToOne
     @JoinColumn(name = "id_user")
     private User user;

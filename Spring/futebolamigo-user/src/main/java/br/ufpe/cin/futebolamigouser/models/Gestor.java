@@ -13,7 +13,5 @@ public class Gestor {
     @OneToOne
     @JoinColumn(name = "id_user")
     private User user;
-//    @OneToOne
-//    @JoinColumn(name = "nome_time")
-//    private Time time;
+    private Long time;
 }

@@ -2,7 +2,7 @@ package br.ufpe.cin.futebolamigouser.controllers;
 
 import br.ufpe.cin.futebolamigouser.dto.GestorDTO;
 import br.ufpe.cin.futebolamigouser.dto.JogadorDTO;
-//import br.ufpe.cin.futebolamigouser.dto.TimeDTO;
+import br.ufpe.cin.futebolamigouser.dto.TimeDTO;
 import br.ufpe.cin.futebolamigouser.dto.UserDTO;
 import br.ufpe.cin.futebolamigouser.services.GestorService;
 import br.ufpe.cin.futebolamigouser.services.JogadorService;
@@ -74,18 +74,18 @@ public class GestorController {
         return "gestorManagement";
     }
 
-//    @GetMapping("/createTime")
-//    public String createTime(Model model) {
-//        model.addAttribute("time", new TimeDTO());
-//        return "createTime";
-//    }
-//
-//    @PostMapping("/createTime")
-//    public String saveTime(@ModelAttribute("time") TimeDTO timeDTO) {
-//        timeService.createTime(timeDTO);
-//        return "gestorManagement";
-//
-//    }
+    @GetMapping("/createTime")
+    public String createTime(Model model) {
+        model.addAttribute("time", new TimeDTO());
+        return "createTime";
+    }
+
+    @PostMapping("/createTime")
+    public String saveTime(@ModelAttribute("time") TimeDTO timeDTO) {
+        timeService.createTime(timeDTO);
+        return "gestorManagement";
+
+    }
 
 
 
