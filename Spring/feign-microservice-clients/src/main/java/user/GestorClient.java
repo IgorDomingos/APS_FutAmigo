@@ -6,9 +6,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-@FeignClient(value = "user")
-public interface UserClient {
+@FeignClient(value = "gestor")
+public interface GestorClient {
 
-    @GetMapping(path = "/user/{id}")
-    public ResponseEntity<SecurityProperties.User> getUserById(@PathVariable("id") Long id);
+    @GetMapping(path = "/gestor/{id}")
+    public ResponseEntity<SecurityProperties.User> getGestorById(@PathVariable("id") Long id);
 }

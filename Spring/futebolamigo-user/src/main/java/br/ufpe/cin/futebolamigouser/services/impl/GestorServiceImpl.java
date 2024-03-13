@@ -6,7 +6,10 @@ import br.ufpe.cin.futebolamigouser.models.Gestor;
 import br.ufpe.cin.futebolamigouser.mapper.GestorMapper;
 import br.ufpe.cin.futebolamigouser.services.GestorService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.boot.autoconfigure.security.SecurityProperties;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import user.GestorClient;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -16,6 +19,16 @@ import java.util.stream.Collectors;
 public class GestorServiceImpl implements GestorService {
     private final GestorRepository repository;
     private final GestorMapper mapper;
+
+    private GestorClient gestorClient;
+    public void GestorService(GestorClient gestorClient) {
+        this.gestorClient = gestorClient;
+    }
+
+    public SecurityProperties.User getGestorById(Long id) {
+        ResponseEntity<SecurityProperties.User> response = gestorClient.getGestorById(id);
+        return response.getBody();
+    }
 
     @Override
     public GestorDTO createGestor(GestorDTO gestorDTO) {

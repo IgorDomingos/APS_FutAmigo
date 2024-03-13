@@ -16,6 +16,16 @@ import java.util.stream.Collectors;
 public class TimeServiceImpl implements TimeService {
     private final TimeRepository timeRepository;
     private final TimeMapper timeMapper;
+//    private TimeClient timeClient;
+//
+//    public void TimeService(TimeClient timeClient) {
+//        this.timeClient = timeClient;
+//    }
+//
+//    public Time getTimeById(Long id) {
+//        ResponseEntity<Time> response = timeClient.getTimeById(id);
+//        return response.getBody();
+//    }
 
     @Override
     public TimeDTO createTime(TimeDTO timeDTO) {

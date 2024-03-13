@@ -6,21 +6,25 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="notification" />
+        <module name="amqp" />
+        <module name="eureka-discovery-server" />
         <module name="feign-microservice-clients" />
         <module name="api-gateway" />
         <module name="futebolamigo-time" />
         <module name="futebolamigo-user" />
-        <module name="eureka-discovery-server" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="amqp" options="" />
       <module name="api-gateway" options="-parameters" />
-      <module name="eureka-discovery-server" options="-parameters" />
-      <module name="feign-microservice-clients" options="-parameters" />
+      <module name="eureka-discovery-server" options="" />
+      <module name="feign-microservice-clients" options="" />
       <module name="futebolamigo-time" options="-parameters" />
       <module name="futebolamigo-user" options="-parameters" />
+      <module name="notification" options="" />
     </option>
   </component>
 </project>

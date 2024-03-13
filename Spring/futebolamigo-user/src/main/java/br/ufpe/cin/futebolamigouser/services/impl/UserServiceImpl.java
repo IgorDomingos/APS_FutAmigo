@@ -7,11 +7,14 @@ import br.ufpe.cin.futebolamigouser.models.User;
 import br.ufpe.cin.futebolamigouser.mapper.UserMapper;
 import br.ufpe.cin.futebolamigouser.services.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import user.UserClient;
 
 import java.util.List;
 import java.util.Optional;
@@ -24,12 +27,21 @@ public class UserServiceImpl implements UserService {
     private final UserMapper mapper;
     private final PasswordEncoder encoder;
     private final ApplicationEventPublisher eventPublisher;
+    private UserClient userClient;
     @Override
     public UserDTO createUser(UserDTO userDTO) {
         User userToSave = mapper.convertToEntity(userDTO);
         userToSave.setPassword(encoder.encode(userToSave.getPassword()));
         User savedUser = repository.save(userToSave);
         return mapper.convertToDto(savedUser);
+    }
+    public void UserService(UserClient userClient) {
+        this.userClient = userClient;
+    }
+
+    public SecurityProperties.User getUserById(Long id) {
+        ResponseEntity<SecurityProperties.User> response = userClient.getUserById(id);
+        return response.getBody();
     }
 
     @Override
