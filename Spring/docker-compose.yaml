@@ -20,6 +20,16 @@ services:
       - db-time-data:/var/lib/postgresql/data
     ports:
       - "5433:5432"
+  dbNotification:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: futebol-amigo-notification
+      POSTGRES_USER: security-notification
+      POSTGRES_PASSWORD: abc1
+    volumes:
+      - db-notification-data:/var/lib/postgresql/data
+    ports:
+      - "5434:5432"
   pgadmin:
     image: dpage/pgadmin4
     environment:
@@ -30,3 +40,4 @@ services:
 volumes:
   db-user-data:
   db-time-data:
+  db-notification-data:
