@@ -1,11 +1,11 @@
-package br.ufpe.cin.futebolamigouser.decorator;
+package br.ufpe.cin.futebolamigo.decorator;
 
-//import br.ufpe.cin.futebolamigouser.models.Time;
-import br.ufpe.cin.futebolamigouser.models.User;
+import br.ufpe.cin.futebolamigo.models.Time;
+import br.ufpe.cin.futebolamigo.models.User;
 
 public interface JogadorInterface {
     String getCpf();
-//    Time getTime();
+    Time getTime();
     User getUser();
     String getIdade();
     double getPeso();

@@ -1,4 +1,4 @@
-package br.ufpe.cin.futebolamigotime.models;
+package br.ufpe.cin.futebolamigo.models;
 
 import br.ufpe.cin.futebolamigotime.dto.JogadorDTO;
 import jakarta.persistence.*;
@@ -14,6 +14,7 @@ import java.util.List;
 public class Time {
     @Id
     private String nome;
+<<<<<<< HEAD
     private Long gestor;
     @OneToMany
     private List<JogadorDTO> jogador;
@@ -21,6 +22,17 @@ public class Time {
     private String corS;
 
     public List<JogadorDTO> getJogadores() {
+=======
+    @OneToOne
+    @JoinColumn(name = "cpf_gestor")
+    private Gestor gestor;
+    @OneToMany(mappedBy = "time")
+    private List<Jogador> jogador;
+    private String corP;
+    private String corS;
+
+    public List<Jogador> getJogadores() {
+>>>>>>> parent of e93bbb3 (fix, and create docker compose)
         return this.jogador;
     }
 }

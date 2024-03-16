@@ -1,9 +1,9 @@
-package br.ufpe.cin.futebolamigouser.services;
+package br.ufpe.cin.futebolamigo.services;
 
-import br.ufpe.cin.futebolamigouser.dto.JogadorDTO;
-import br.ufpe.cin.futebolamigouser.dto.UserDTO;
-import br.ufpe.cin.futebolamigouser.models.Jogador;
-import br.ufpe.cin.futebolamigouser.repositories.JogadorRepository;
+import br.ufpe.cin.futebolamigo.dto.JogadorDTO;
+import br.ufpe.cin.futebolamigo.dto.UserDTO;
+import br.ufpe.cin.futebolamigo.models.Jogador;
+import br.ufpe.cin.futebolamigo.repositories.JogadorRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;

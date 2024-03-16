@@ -1,6 +1,6 @@
-package br.ufpe.cin.futebolamigouser.repositories;
+package br.ufpe.cin.futebolamigo.repositories;
 
-import br.ufpe.cin.futebolamigouser.models.Jogador;
+import br.ufpe.cin.futebolamigo.models.Jogador;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

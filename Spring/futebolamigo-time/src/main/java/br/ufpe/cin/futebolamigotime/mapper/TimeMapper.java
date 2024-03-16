@@ -1,7 +1,7 @@
-package br.ufpe.cin.futebolamigotime.mapper;
+package br.ufpe.cin.futebolamigo.mapper;
 
-import br.ufpe.cin.futebolamigotime.dto.TimeDTO;
-import br.ufpe.cin.futebolamigotime.models.Time;
+import br.ufpe.cin.futebolamigo.dto.TimeDTO;
+import br.ufpe.cin.futebolamigo.models.Time;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;

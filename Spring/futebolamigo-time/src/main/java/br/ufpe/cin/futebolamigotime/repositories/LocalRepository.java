@@ -1,6 +1,6 @@
-package br.ufpe.cin.futebolamigotime.repositories;
+package br.ufpe.cin.futebolamigo.repositories;
 
-import br.ufpe.cin.futebolamigotime.models.Local;
+import br.ufpe.cin.futebolamigo.models.Local;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface LocalRepository extends JpaRepository<Local, String> {

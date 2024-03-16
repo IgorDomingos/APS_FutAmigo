@@ -1,8 +1,8 @@
-package br.ufpe.cin.futebolamigouser.services.impl;
+package br.ufpe.cin.futebolamigo.services.impl;
 
-import br.ufpe.cin.futebolamigouser.repositories.UserRepository;
-import br.ufpe.cin.futebolamigouser.dto.CustomUserDetails;
-import br.ufpe.cin.futebolamigouser.models.User;
+import br.ufpe.cin.futebolamigo.repositories.UserRepository;
+import br.ufpe.cin.futebolamigo.dto.CustomUserDetails;
+import br.ufpe.cin.futebolamigo.models.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

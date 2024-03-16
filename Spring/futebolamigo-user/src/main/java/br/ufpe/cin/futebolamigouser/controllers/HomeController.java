@@ -1,4 +1,4 @@
-package br.ufpe.cin.futebolamigouser.controllers;
+package br.ufpe.cin.futebolamigo.controllers;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,6 +1,6 @@
-package br.ufpe.cin.futebolamigouser.models;
+package br.ufpe.cin.futebolamigo.models;
 
-import br.ufpe.cin.futebolamigouser.decorator.JogadorInterface;
+import br.ufpe.cin.futebolamigo.decorator.JogadorInterface;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,7 +11,13 @@ import lombok.Setter;
 public class Jogador implements JogadorInterface {
     @Id
     private String cpf;
+<<<<<<< HEAD
     private Long time;
+=======
+    @ManyToOne
+    @JoinColumn(name = "nome_time")
+    private Time time;
+>>>>>>> parent of e93bbb3 (fix, and create docker compose)
     @OneToOne
     @JoinColumn(name = "id_user")
     private User user;

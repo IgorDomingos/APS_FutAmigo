@@ -1,4 +1,4 @@
-package br.ufpe.cin.futebolamigouser.models;
+package br.ufpe.cin.futebolamigo.models;
 
 import jakarta.persistence.*;
 import lombok.Data;

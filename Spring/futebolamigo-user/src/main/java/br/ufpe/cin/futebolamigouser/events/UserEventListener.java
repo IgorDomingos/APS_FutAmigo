@@ -1,5 +1,5 @@
-package br.ufpe.cin.futebolamigouser.events;
-import br.ufpe.cin.futebolamigouser.dto.UserDTO;
+package br.ufpe.cin.futebolamigo.events;
+import br.ufpe.cin.futebolamigo.dto.UserDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.event.EventListener;

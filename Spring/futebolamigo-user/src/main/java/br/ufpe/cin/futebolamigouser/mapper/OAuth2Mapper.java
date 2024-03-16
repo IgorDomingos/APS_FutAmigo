@@ -1,7 +1,7 @@
-package br.ufpe.cin.futebolamigouser.mapper;
+package br.ufpe.cin.futebolamigo.mapper;
 
-import br.ufpe.cin.futebolamigouser.dto.OAuth2UserDTO;
-import br.ufpe.cin.futebolamigouser.models.OAuth2User;
+import br.ufpe.cin.futebolamigo.dto.OAuth2UserDTO;
+import br.ufpe.cin.futebolamigo.models.OAuth2User;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;

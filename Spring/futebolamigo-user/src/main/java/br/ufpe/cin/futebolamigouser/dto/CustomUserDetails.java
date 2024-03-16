@@ -1,6 +1,6 @@
-package br.ufpe.cin.futebolamigouser.dto;
+package br.ufpe.cin.futebolamigo.dto;
 
-import br.ufpe.cin.futebolamigouser.models.User;
+import br.ufpe.cin.futebolamigo.models.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 

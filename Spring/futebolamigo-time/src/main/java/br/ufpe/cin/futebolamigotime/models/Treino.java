@@ -1,4 +1,4 @@
-package br.ufpe.cin.futebolamigotime.models;
+package br.ufpe.cin.futebolamigo.models;
 
 import jakarta.persistence.*;
 import java.sql.Timestamp;
