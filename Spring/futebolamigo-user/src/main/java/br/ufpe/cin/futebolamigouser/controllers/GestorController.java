@@ -20,7 +20,7 @@ import java.util.List;
 
 
 @Controller
-@RequestMapping("api/v1/gestor")
+@RequestMapping("/gestor")
 @RequiredArgsConstructor
 public class GestorController {
     private final UserService userService;

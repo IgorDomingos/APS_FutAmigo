@@ -10,7 +10,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import user.JogadorClient;
+//import user.JogadorClient;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -21,15 +21,15 @@ public class JogadorServiceImpl implements JogadorService {
     private final JogadorRepository repository;
     private final JogadorMapper mapper;
 
-    private JogadorClient jogadorClient;
-    public void JogadorService(JogadorClient jogadorClient) {
-        this.jogadorClient = jogadorClient;
-    }
-
-    public SecurityProperties.User getJogadorById(Long id) {
-        ResponseEntity<SecurityProperties.User> response = jogadorClient.getJogadorById(id);
-        return response.getBody();
-    }
+//    private JogadorClient jogadorClient;
+//    public void JogadorService(JogadorClient jogadorClient) {
+//        this.jogadorClient = jogadorClient;
+//    }
+//
+//    public SecurityProperties.User getJogadorById(Long id) {
+//        ResponseEntity<SecurityProperties.User> response = jogadorClient.getJogadorById(id);
+//        return response.getBody();
+//    }
 
     @Override
     public JogadorDTO createJogador(JogadorDTO jogadorDTO) {

@@ -14,7 +14,7 @@ import java.util.List;
 
 
 @Controller
-@RequestMapping("api/v1/jogador")
+@RequestMapping("/jogador")
 @RequiredArgsConstructor
 public class JogadorController {
     private final JogadorService jogadorService;

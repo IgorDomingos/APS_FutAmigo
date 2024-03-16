@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("api/v1/oauth2")
+@RequestMapping("/oauth2")
 public class OAuth2Controller {
     private OAuth2UserService oAuth2UserService;
 
