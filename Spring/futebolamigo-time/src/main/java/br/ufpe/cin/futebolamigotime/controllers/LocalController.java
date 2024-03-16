@@ -11,7 +11,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/local")
+@RequestMapping("api/v1/local")
 public class LocalController {
 
     public LocalController(LocalService localService) {

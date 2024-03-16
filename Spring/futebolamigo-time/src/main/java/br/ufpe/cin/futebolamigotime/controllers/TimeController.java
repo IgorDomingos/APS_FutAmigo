@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-@RequestMapping("/time")
+@RequestMapping("api/v1/time")
 @RequiredArgsConstructor
 public class TimeController {
     private final TimeService timeService;

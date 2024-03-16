@@ -10,6 +10,6 @@ import java.sql.Time;
 @FeignClient(value = "time")
 public interface TimeClient {
 
-    @GetMapping(path = "/time/{id}")
+    @GetMapping(path = "api/v1/time/{id}")
     public ResponseEntity<Time> getTimeById(@PathVariable("id") Long id);
 }

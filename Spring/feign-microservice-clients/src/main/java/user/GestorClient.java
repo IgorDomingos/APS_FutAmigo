@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 @FeignClient(value = "gestor")
 public interface GestorClient {
 
-    @GetMapping(path = "/gestor/{id}")
+    @GetMapping(path = "api/v1/gestor/{id}")
     public ResponseEntity<SecurityProperties.User> getGestorById(@PathVariable("id") Long id);
 }

@@ -11,7 +11,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/treino")
+@RequestMapping("api/v1/treino")
 public class TreinoController {
 
     public TreinoController(TreinoService treinoService) {
