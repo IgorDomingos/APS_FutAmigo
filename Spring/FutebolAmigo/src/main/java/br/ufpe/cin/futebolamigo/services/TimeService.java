@@ -25,10 +25,4 @@ public interface TimeService {
 
     void save(Time time);
 
-    public Optional<Time> getTimeById(Long timeId) {
-        return timeRepository.findById(timeId);
-    }
-    public void deleteTime(Long timeId) {
-        timeRepository.deleteById(timeId);
-    }
 }

@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="253f909e-c0c7-40b4-aab6-693f07e3169b" name="Changes" comment="" />
+    <list default="true" id="253f909e-c0c7-40b4-aab6-693f07e3169b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/copilot/chatSessions/xd.lck" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/copilot/chatSessions/xd.lck" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -46,9 +48,10 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Spring Boot.FutebolamigoUserApplication.executor": "Run",
     "git-widget-placeholder": "Microservices",
+    "ignore.virus.scanning.warn.message": "true",
     "jdk.selected.JAVA_MODULE": "jbrsdk-17",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Vitin/Desktop/Faculdade/APS_FutAmigo/Spring/api-gateway",
+    "last_opened_file_path": "C:/Users/Vitin/Desktop/Faculdade/APS_FutAmigo/Spring",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -144,6 +147,7 @@
       <workItem from="1710601574593" duration="4344000" />
       <workItem from="1710695282003" duration="88000" />
       <workItem from="1710695622394" duration="51000" />
+      <workItem from="1710695701315" duration="43000" />
     </task>
     <servers />
   </component>
