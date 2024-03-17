@@ -1,10 +1,10 @@
-package br.ufpe.cin.futebolamigo.services.impl;
+package br.ufpe.cin.futebolamigouser.services.impl;
 
-import br.ufpe.cin.futebolamigo.repositories.GestorRepository;
-import br.ufpe.cin.futebolamigo.dto.GestorDTO;
-import br.ufpe.cin.futebolamigo.models.Gestor;
-import br.ufpe.cin.futebolamigo.mapper.GestorMapper;
-import br.ufpe.cin.futebolamigo.services.GestorService;
+import br.ufpe.cin.futebolamigouser.repositories.GestorRepository;
+import br.ufpe.cin.futebolamigouser.dto.GestorDTO;
+import br.ufpe.cin.futebolamigouser.models.Gestor;
+import br.ufpe.cin.futebolamigouser.mapper.GestorMapper;
+import br.ufpe.cin.futebolamigouser.services.GestorService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.http.ResponseEntity;

@@ -1,4 +1,4 @@
-package br.ufpe.cin.futebolamigo.dto;
+package br.ufpe.cin.futebolamigouser.dto;
 
 import lombok.Getter;
 import lombok.Setter;

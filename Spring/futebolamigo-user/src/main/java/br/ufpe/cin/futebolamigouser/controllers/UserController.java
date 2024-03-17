@@ -1,6 +1,5 @@
-package br.ufpe.cin.futebolamigo.controllers;
+package br.ufpe.cin.futebolamigouser.controllers;
 
-<<<<<<< HEAD
 import br.ufpe.cin.futebolamigouser.dto.GestorDTO;
 import br.ufpe.cin.futebolamigouser.dto.JogadorDTO;
 //import br.ufpe.cin.futebolamigouser.dto.TimeDTO;
@@ -12,17 +11,6 @@ import br.ufpe.cin.futebolamigouser.services.GestorService;
 import br.ufpe.cin.futebolamigouser.services.JogadorService;
 //import br.ufpe.cin.futebolamigouser.services.TimeService;
 import br.ufpe.cin.futebolamigouser.services.UserService;
-=======
-import br.ufpe.cin.futebolamigo.dto.GestorDTO;
-import br.ufpe.cin.futebolamigo.dto.JogadorDTO;
-import br.ufpe.cin.futebolamigo.dto.TimeDTO;
-import br.ufpe.cin.futebolamigo.dto.UserDTO;
-import br.ufpe.cin.futebolamigo.events.UserEvent;
-import br.ufpe.cin.futebolamigo.services.GestorService;
-import br.ufpe.cin.futebolamigo.services.JogadorService;
-import br.ufpe.cin.futebolamigo.services.TimeService;
-import br.ufpe.cin.futebolamigo.services.UserService;
->>>>>>> parent of e93bbb3 (fix, and create docker compose)
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Controller;
@@ -41,7 +29,7 @@ public class UserController {
     private final UserService userService;
     private final GestorService gestorService;
     private final JogadorService jogadorService;
-    private final TimeService timeService;
+//    private final TimeService timeService;
     private final ApplicationEventPublisher eventPublisher;
     private final Subject subject;
     private final AnotherUserEventListener anotherUserEventListener;
@@ -113,11 +101,11 @@ public class UserController {
         return "redirect:/user/userManagement";
     }
 
-    @PostMapping("/findTime")
-    public String findTime(@ModelAttribute TimeDTO timeDTO) {
-        timeService.findByNome(timeDTO.getNome());
-        return "redirect:/user/userManagement";
-    }
+//    @PostMapping("/findTime")
+//    public String findTime(@ModelAttribute TimeDTO timeDTO) {
+//        timeService.findByNome(timeDTO.getNome());
+//        return "redirect:/user/userManagement";
+//    }
 
 
 }

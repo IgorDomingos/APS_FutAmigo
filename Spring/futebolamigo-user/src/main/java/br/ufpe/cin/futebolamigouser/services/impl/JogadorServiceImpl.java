@@ -1,11 +1,11 @@
-package br.ufpe.cin.futebolamigo.services.impl;
+package br.ufpe.cin.futebolamigouser.services.impl;
 
-import br.ufpe.cin.futebolamigo.decorator.JogadorWithSkills;
-import br.ufpe.cin.futebolamigo.repositories.JogadorRepository;
-import br.ufpe.cin.futebolamigo.dto.JogadorDTO;
-import br.ufpe.cin.futebolamigo.models.Jogador;
-import br.ufpe.cin.futebolamigo.mapper.JogadorMapper;
-import br.ufpe.cin.futebolamigo.services.JogadorService;
+import br.ufpe.cin.futebolamigouser.decorator.JogadorWithSkills;
+import br.ufpe.cin.futebolamigouser.repositories.JogadorRepository;
+import br.ufpe.cin.futebolamigouser.dto.JogadorDTO;
+import br.ufpe.cin.futebolamigouser.models.Jogador;
+import br.ufpe.cin.futebolamigouser.mapper.JogadorMapper;
+import br.ufpe.cin.futebolamigouser.services.JogadorService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.http.ResponseEntity;

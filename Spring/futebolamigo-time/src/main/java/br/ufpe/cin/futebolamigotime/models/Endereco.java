@@ -1,4 +1,4 @@
-package br.ufpe.cin.futebolamigo.models;
+package br.ufpe.cin.futebolamigotime.models;
 
 import jakarta.persistence.Embeddable;
 

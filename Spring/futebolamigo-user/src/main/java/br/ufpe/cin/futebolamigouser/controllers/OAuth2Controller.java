@@ -1,6 +1,6 @@
-package br.ufpe.cin.futebolamigo.controllers;// Classe OAuth2Controller
-import br.ufpe.cin.futebolamigo.dto.OAuth2UserDTO;
-import br.ufpe.cin.futebolamigo.services.OAuth2UserService;
+package br.ufpe.cin.futebolamigouser.controllers;// Classe OAuth2Controller
+import br.ufpe.cin.futebolamigouser.dto.OAuth2UserDTO;
+import br.ufpe.cin.futebolamigouser.services.OAuth2UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
 import org.springframework.stereotype.Controller;

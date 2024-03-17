@@ -1,7 +1,7 @@
-package br.ufpe.cin.futebolamigo.decorator;
+package br.ufpe.cin.futebolamigouser.decorator;
 
-import br.ufpe.cin.futebolamigo.models.Time;
-import br.ufpe.cin.futebolamigo.models.User;
+//import br.ufpe.cin.futebolamigouser.models.Time;
+import br.ufpe.cin.futebolamigouser.models.User;
 
 public abstract class JogadorDecorator implements JogadorInterface {
     protected JogadorInterface jogador;
@@ -15,10 +15,10 @@ public abstract class JogadorDecorator implements JogadorInterface {
         return jogador.getCpf();
     }
 
-    @Override
-    public Time getTime() {
-        return jogador.getTime();
-    }
+//    @Override
+//    public Time getTime() {
+//        return jogador.getTime();
+//    }
 
     @Override
     public User getUser() {

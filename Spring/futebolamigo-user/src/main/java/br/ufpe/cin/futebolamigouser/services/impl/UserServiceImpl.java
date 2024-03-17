@@ -1,11 +1,11 @@
-package br.ufpe.cin.futebolamigo.services.impl;
+package br.ufpe.cin.futebolamigouser.services.impl;
 
-import br.ufpe.cin.futebolamigo.events.UserEvent;
-import br.ufpe.cin.futebolamigo.repositories.UserRepository;
-import br.ufpe.cin.futebolamigo.dto.UserDTO;
-import br.ufpe.cin.futebolamigo.models.User;
-import br.ufpe.cin.futebolamigo.mapper.UserMapper;
-import br.ufpe.cin.futebolamigo.services.UserService;
+import br.ufpe.cin.futebolamigouser.events.UserEvent;
+import br.ufpe.cin.futebolamigouser.repositories.UserRepository;
+import br.ufpe.cin.futebolamigouser.dto.UserDTO;
+import br.ufpe.cin.futebolamigouser.models.User;
+import br.ufpe.cin.futebolamigouser.mapper.UserMapper;
+import br.ufpe.cin.futebolamigouser.services.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.context.ApplicationEventPublisher;

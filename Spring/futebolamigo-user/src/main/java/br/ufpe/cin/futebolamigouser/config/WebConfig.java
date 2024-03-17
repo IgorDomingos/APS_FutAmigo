@@ -1,4 +1,4 @@
-package br.ufpe.cin.futebolamigo.config;
+package br.ufpe.cin.futebolamigouser.config;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;

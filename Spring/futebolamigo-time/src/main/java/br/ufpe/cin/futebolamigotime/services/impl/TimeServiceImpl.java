@@ -1,10 +1,10 @@
-package br.ufpe.cin.futebolamigo.services.impl;
+package br.ufpe.cin.futebolamigotime.services.impl;
 
-import br.ufpe.cin.futebolamigo.dto.TimeDTO;
-import br.ufpe.cin.futebolamigo.mapper.TimeMapper;
-import br.ufpe.cin.futebolamigo.models.Time;
-import br.ufpe.cin.futebolamigo.repositories.TimeRepository;
-import br.ufpe.cin.futebolamigo.services.TimeService;
+import br.ufpe.cin.futebolamigotime.dto.TimeDTO;
+import br.ufpe.cin.futebolamigotime.mapper.TimeMapper;
+import br.ufpe.cin.futebolamigotime.models.Time;
+import br.ufpe.cin.futebolamigotime.repositories.TimeRepository;
+import br.ufpe.cin.futebolamigotime.services.TimeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

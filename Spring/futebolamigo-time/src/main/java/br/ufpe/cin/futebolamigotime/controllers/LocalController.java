@@ -1,7 +1,7 @@
-package br.ufpe.cin.futebolamigo.controllers;
+package br.ufpe.cin.futebolamigotime.controllers;
 
-import br.ufpe.cin.futebolamigo.models.Local;
-import br.ufpe.cin.futebolamigo.services.LocalService;
+import br.ufpe.cin.futebolamigotime.models.Local;
+import br.ufpe.cin.futebolamigotime.services.LocalService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;

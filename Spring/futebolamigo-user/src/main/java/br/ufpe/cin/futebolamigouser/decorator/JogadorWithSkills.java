@@ -1,4 +1,4 @@
-package br.ufpe.cin.futebolamigo.decorator;
+package br.ufpe.cin.futebolamigouser.decorator;
 
 import lombok.Getter;
 import lombok.Setter;
