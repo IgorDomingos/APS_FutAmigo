@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.sql.Time;
 
-@FeignClient(value = "time")
+@FeignClient(value = "time", url = "http://localhost:8081")
 public interface TimeClient {
 
-    @GetMapping(path = "api/v1/time/{id}")
+    @GetMapping(path = "/time/{id}")
     public ResponseEntity<Time> getTimeById(@PathVariable("id") Long id);
 }

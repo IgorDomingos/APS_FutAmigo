@@ -6,9 +6,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-@FeignClient(value = "jogador")
+@FeignClient(value = "jogador", url = "http://localhost:8085")
 public interface JogadorClient {
 
-    @GetMapping(path = "api/v1/jogador/{id}")
+    @GetMapping(path = "jogador/{id}")
     public ResponseEntity<SecurityProperties.User> getJogadorById(@PathVariable("id") Long id);
 }

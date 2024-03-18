@@ -37,6 +37,12 @@ services:
       PGADMIN_DEFAULT_PASSWORD: futebolamigo
     ports:
       - "9000:80"
+  rabbitmq:
+    image: rabbitmq:3.9.11-management-alpine
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
 volumes:
   db-user-data:
   db-time-data:

@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="futebol-amigo-user@localhost" uuid="df2f78c6-717b-4ad0-90ae-3b59786728da">
+    <data-source source="LOCAL" name="futebol-amigo-user@localhost" uuid="ad972d39-837f-44f4-afab-45e2aa87382f">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
-      <imported>true</imported>
-      <remarks>$PROJECT_DIR$/src/main/resources/application.properties</remarks>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://localhost:5432/futebol-amigo-user</jdbc-url>
       <jdbc-additional-properties>

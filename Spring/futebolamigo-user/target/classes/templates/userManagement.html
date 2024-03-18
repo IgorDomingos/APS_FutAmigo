@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>User Management</title>
+    <link rel="stylesheet" th:href="@{/css/userManagement.css}">
+</head>
+<body>
+
+<h2>Update User</h2>
+<form th:action="@{/user/update}" method="post" id="updateUserForm">
+    <label for="id">ID:</label><br>
+    <select id="id" name="id">
+        <option th:each="user : ${users}" th:value="${user.id}" th:text="${user.userName}"></option>
+    </select><br>
+    <label for="firstName">First Name:</label><br>
+    <input type="text" id="firstName" name="firstName"><br>
+    <label for="lastName">Last Name:</label><br>
+    <input type="text" id="lastName" name="lastName"><br>
+    <label for="userName">Username:</label><br>
+    <input type="text" id="userName" name="userName"><br>
+    <input type="submit" value="Update User">
+</form>
+
+<h2>Delete User</h2>
+<form th:action="@{/user/delete}" method="post" id="deleteUserForm">
+    <label for="id">ID:</label><br>
+    <select id="id" name="id">
+        <option th:each="user : ${users}" th:value="${user.id}" th:text="${user.userName}"></option>
+    </select><br>
+    <input type="submit" value="Delete User">
+</form>
+
+<h2>Find User</h2>
+<form th:action="@{/user/find}" method="post" id="findUserForm">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="userName" required>
+    <input type="submit" value="Find User">
+</form>
+
+
+
+<script th:src="@{/js/userManagement.js}"></script>
+</body>
+</html>
