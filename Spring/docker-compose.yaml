@@ -1,5 +1,19 @@
 version: '3.8'
 services:
+  user:
+    image: 'docker-spring-boot-postgres:latest'
+    build:
+      context: .
+    container_name: user
+    depends_on:
+      - dbUser
+    environment:
+      - POSTGRES_USER=security-user
+      - POSTGRES_PASSWORD=abc1
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://dbUser:5432/futebol-amigo-user
+      - SPRING_DATASOURCE_USERNAME=security-user
+      - SPRING_DATASOURCE_PASSWORD=abc1
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
   dbUser:
     image: postgres:15
     environment:
